@@ -1,0 +1,1099 @@
+﻿<Window x:Class="GCS_EEPISAT_05__COSMO_.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Background="#EDEDED"
+        WindowState="Maximized"
+        WindowStyle="None"
+        Title="GCS COSMO 05"
+        Width="{x:Static SystemParameters.PrimaryScreenWidth}"  
+        Height="{x:Static SystemParameters.PrimaryScreenHeight}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <!--header atas-->
+            <RowDefinition Height="85*" />
+            <!--header tengah-->
+            <RowDefinition Height="60.235" />
+            <!--header bawah-->
+            <RowDefinition Height="55*" />
+            <!--element-->
+            <RowDefinition Height="256*" />
+            <RowDefinition Height="247*"/>
+            <!--footer-->
+            <RowDefinition Height="65*" />
+        </Grid.RowDefinitions>
+
+        <!--HEADER ATAS-->
+        <Grid Grid.Row="0" Background="Transparent">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="0*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="180"></ColumnDefinition>
+                <ColumnDefinition Width="6"></ColumnDefinition>
+                <ColumnDefinition Width="110"></ColumnDefinition>
+                <ColumnDefinition Width="65"></ColumnDefinition>
+                <ColumnDefinition Width="450"></ColumnDefinition>
+                <ColumnDefinition Width="65"></ColumnDefinition>
+                <ColumnDefinition Width="125"></ColumnDefinition>
+                <ColumnDefinition Width="7"></ColumnDefinition>
+                <ColumnDefinition Width="150"></ColumnDefinition>
+                <ColumnDefinition Width="6"></ColumnDefinition>
+                <ColumnDefinition Width="145"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <!--Logo-->
+            <Border Grid.Row="0" Grid.Column="1" CornerRadius="20" Background="#FAFAFA" Margin="0,10,0,10">
+                <Border.Effect>
+                    <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
+                </Border.Effect>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"></ColumnDefinition>
+                        <ColumnDefinition Width="60"></ColumnDefinition>
+                        <ColumnDefinition Width="60"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Image x:Name="IconItemHA1" Grid.Column="0" Source="/Assets/CanSat_logo.png" Style="{DynamicResource IconItemHA1}" />
+                    <Image Grid.Column="1" Source="/Assets/pens.png" Style="{DynamicResource IconItemHA1}" />
+                    <Image Grid.Column="2" Source="/Assets/EEPISat-Logotype1.png" Style="{DynamicResource IconItemHA1}" />
+                </Grid>
+            </Border>
+            <!--Bendera-->
+            <Border Grid.Column="3" CornerRadius="20" Background="#FAFAFA" Margin="0,10,0,10">
+                <Border.Effect>
+                    <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
+                </Border.Effect>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"></ColumnDefinition>
+                        <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Source="/Assets/Flag.png" Style="{DynamicResource IconItemHA2}"/>
+                    <Label Content="INA" Foreground="#292929" FontFamily="Montserrat" FontWeight="Bold" FontSize="25" Height="35" Grid.Column="1" />
+                </Grid>
+            </Border>
+            <!--Import Button-->
+            <Border Grid.Column="7" CornerRadius="20" Background="#FAFAFA" Margin="0,10,0,10">
+                <Border.Effect>
+                    <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
+                </Border.Effect>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="55"></ColumnDefinition>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Source="/Assets/import csv.png" Style="{DynamicResource IconItemHA2}"/>
+                    <TextBlock Foreground="#292929" FontFamily="Inter" FontWeight="SemiBold" FontSize="18" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        Import
+                        <LineBreak></LineBreak>
+                        Here
+                    </TextBlock>
+                </Grid>
+            </Border>
+            <!--CanSat Mode-->
+            <Border Grid.Column="9" CornerRadius="20" Background="#FAFAFA" Margin="0,10,0,10">
+                <Border.Effect>
+                    <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
+                </Border.Effect>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"></ColumnDefinition>
+                        <ColumnDefinition Width="58"></ColumnDefinition>
+                        <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Source="/Assets/CanSat_Modepng.png" Style="{DynamicResource IconItemHA2}"/>
+                    <TextBlock Foreground="#292929" FontFamily="Inter" FontWeight="DemiBold" FontSize="18" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    CanSat
+                    <LineBreak></LineBreak>
+                    Mode
+                    </TextBlock>
+                    <Image Grid.Column="2" Source="/Assets/flight_mode.png" Style="{DynamicResource IconCanSat1}"/>
+                </Grid>
+            </Border>
+            <!--Window Interaction-->
+            <Border Grid.Column="11" CornerRadius="20" Background="#FAFAFA" Margin="0,10,0,10">
+                <Border.Effect>
+                    <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
+                </Border.Effect>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="48.3"></ColumnDefinition>
+                        <ColumnDefinition Width="48.3"></ColumnDefinition>
+                        <ColumnDefinition Width="43.3"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0" CornerRadius="50" Background="#2ACB42" Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center"></Border>
+                    <Border Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Button x:Name="RestartBtn" Click="RestartBtnClick" Style="{DynamicResource RestartBtn}"/>
+                    </Border>
+                    <Border Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Button x:Name="ShutdownBtn" Click="ShutdownBtnClick" Style="{DynamicResource ShutdownBtn}"/>
+                    </Border>
+                </Grid>
+            </Border>
+
+            <Label x:Name="Title1" Grid.Column="5" Content="BAMANTARA EEPISAT | GROUND CONTROL STATION" Foreground="#292929" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Height="40" Width="460" Margin="0,10,0,0"/>
+            <Label x:Name="Title2" Grid.Column="5" Content="POLITEKNIK ELEKTRONIKA NEGERI SURABAYA" Foreground="#292929" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Regular" FontSize="20" Height="40" Width="416" Margin="0,40,0,0"/>
+        </Grid>
+
+        <!--HEADER TENGAH-->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.01*"></ColumnDefinition>
+                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                <ColumnDefinition Width="0.032*"></ColumnDefinition>
+                <ColumnDefinition Width="0.033*"></ColumnDefinition>
+                <ColumnDefinition Width="0.075*"></ColumnDefinition>
+                <ColumnDefinition Width="0.078*"></ColumnDefinition>
+                <ColumnDefinition Width="0.02*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="1" CornerRadius="10" Background="#FAFAFA" Height="50"  HorizontalAlignment="Center" VerticalAlignment="Center" Width="760">
+                <Border.Effect>
+                    <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
+                </Border.Effect>
+                <Grid Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.08*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.13*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.04*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.23*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.08*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.08*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.18*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.055*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.18*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.07*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.16*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <!--Team ID-->
+                    <Image Grid.Column="0" Source="/Assets/Vector_TeamID.png" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.5*"></RowDefinition>
+                            <RowDefinition Height="0.5*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock Foreground="#292929" FontFamily="Inter" FontWeight="Bold" FontSize="15" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                TEAM ID
+                        </TextBlock>
+                        <TextBlock Foreground="#292929" FontFamily="Inter" FontWeight="Regular" FontSize="15" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top">
+                2000
+                        </TextBlock>
+                    </Grid>
+
+                    <!--State-->
+                    <Image Grid.Column="2" Source="/Assets/Vector_State.png" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Grid Grid.Column="3">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.5*"></RowDefinition>
+                            <RowDefinition Height="0.5*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock Foreground="#292929" FontFamily="Inter" FontWeight="Bold" FontSize="15" Grid.Column="3" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                STATE
+                        </TextBlock>
+                        <TextBlock Foreground="#292929" FontFamily="Inter" FontWeight="Regular" FontSize="14" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top">
+                MISSION_READY
+                        </TextBlock>
+                    </Grid>
+
+                    <!--Mission Time-->
+                    <Image Grid.Column="4" Source="/Assets/gcs_time.png" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Grid Grid.Column="5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.5*"></RowDefinition>
+                            <RowDefinition Height="0.5*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock Foreground="#292929" FontFamily="Inter" FontWeight="Bold" FontSize="14" Grid.Column="5" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                MISSION_TIME
+                        </TextBlock>
+                        <TextBlock Foreground="#292929" FontFamily="Inter" FontWeight="Regular" FontSize="15" Grid.Column="5" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top">
+                00:00:00
+                        </TextBlock>
+                    </Grid>
+
+                    <!--Satelit-->
+                    <Image Grid.Column="6" Source="/Assets/Vector_satelit.png" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Grid Grid.Column="7">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.5*"></RowDefinition>
+                            <RowDefinition Height="0.5*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock Foreground="#292929" FontFamily="Inter" FontWeight="Bold" FontSize="15" Grid.Column="7" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                SATELLITES
+                        </TextBlock>
+                        <TextBlock Foreground="#292929" FontFamily="Inter" FontWeight="Regular" FontSize="15" Grid.Column="7" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top">
+                12 (GOOD)
+                        </TextBlock>
+                    </Grid>
+
+                    <!--baterai-->
+                    <Image Grid.Column="8" Source="/Assets/battery.png" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Grid Grid.Column="9">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.5*"></RowDefinition>
+                            <RowDefinition Height="0.5*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock Foreground="#292929" FontFamily="Inter" FontWeight="Bold" FontSize="15" Grid.Column="9" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                BATTERY
+                        </TextBlock>
+                        <TextBlock Foreground="#292929" FontFamily="Inter" FontWeight="Regular" FontSize="15" Grid.Column="9" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top">
+                100% / 8.4 v
+                        </TextBlock>
+                    </Grid>
+
+
+                    <!--Air speed-->
+                    <Image Grid.Column="10" Source="/Assets/Vector_Air.png" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Grid Grid.Column="11">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.5*"></RowDefinition>
+                            <RowDefinition Height="0.5*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock Foreground="#292929" FontFamily="Inter" FontWeight="Bold" FontSize="15" Grid.Column="11" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                AIR SPEED
+                        </TextBlock>
+                        <TextBlock Foreground="#292929" FontFamily="Inter" FontWeight="Regular" FontSize="15" Grid.Column="11" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top">
+                10.0 m/s
+                        </TextBlock>
+
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <!-- GCS Com -->
+            <Border Grid.Column="2" CornerRadius="10" Background="#FAFAFA" Height="50">
+                <Border.Effect>
+                    <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
+                </Border.Effect>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.15*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Source="/Assets/Vector_COM.png" Height="30" Width="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.5*"></RowDefinition>
+                            <RowDefinition Height="0.5*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock Foreground="#292929" FontFamily="Inter" FontWeight="SemiBold" FontSize="14" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="6,0,0,0">
+                GCS COM
+                        </TextBlock>
+                        <Label Foreground="#777575" FontFamily="Inter" FontWeight="Regular" FontSize="14" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Content="Disconnected"/>
+                    </Grid>
+
+                    <Border Grid.Column="2" CornerRadius="50" Background="#FF6157" Height="20" Width="20"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Grid>
+            </Border>
+            <!-- COM Connector -->
+            <Border Grid.Column="3" CornerRadius="10" Background="#FAFAFA" Height="50" Width="45" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <Border.Effect>
+                    <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
+                </Border.Effect>
+                <Image Grid.Column="0" Source="/Assets/connected.png" Margin="0,5,0,5"/>
+            </Border>
+
+            <!-- COM Refresh -->
+            <Border Grid.Column="4" CornerRadius="10" Background="#FAFAFA" Height="50" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <Border.Effect>
+                    <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
+                </Border.Effect>
+                <Image Grid.Column="0" Source="/Assets/refresh.png" Margin="6,8,6,7"/>
+            </Border>
+
+            <!-- COMPORT -->
+            <Border Grid.Column="5" CornerRadius="10" Background="#FAFAFA" Height="50" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <Border.Effect>
+                    <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
+                </Border.Effect>
+                <Label Foreground="#292929" FontFamily="Inter" FontWeight="Bold" FontSize="20" Content="COMPORT" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+
+            <!-- BAUDRATE -->
+            <Border Grid.Column="6" CornerRadius="10" Background="#FAFAFA" Height="50" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <Border.Effect>
+                    <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
+                </Border.Effect>
+                <Label Foreground="#292929" FontFamily="Inter" FontWeight="Bold" FontSize="20" Content="BAUDRATE" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+        </Grid>
+        <!--<Grid Background="Transparent" Margin="0,85,0,0" Grid.RowSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="820"></ColumnDefinition>
+                <ColumnDefinition Width="145"></ColumnDefinition>
+                <ColumnDefinition Width="60"></ColumnDefinition>
+                <ColumnDefinition Width="60"></ColumnDefinition>
+                <ColumnDefinition Width="135"></ColumnDefinition>
+                <ColumnDefinition Width="130"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Row="1" Grid.Column="1" CornerRadius="10" Background="#FAFAFA" Margin="0 3 7 5">
+                <Border.Effect>
+                    <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
+                </Border.Effect>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        -->
+        <!--<ColumnDefinition Width="50"></ColumnDefinition>-->
+        <!--
+                        <ColumnDefinition Width="78"></ColumnDefinition>
+                        <ColumnDefinition Width="17"></ColumnDefinition>
+                        <ColumnDefinition Width="123"></ColumnDefinition>
+                        <ColumnDefinition Width="50"></ColumnDefinition>
+                        <ColumnDefinition Width="125"></ColumnDefinition>
+                        <ColumnDefinition Width="50"></ColumnDefinition>
+                        <ColumnDefinition Width="98"></ColumnDefinition>
+                        <ColumnDefinition Width="40"></ColumnDefinition>
+                        <ColumnDefinition Width="95"></ColumnDefinition>
+                        <ColumnDefinition Width="40"></ColumnDefinition>
+                        <ColumnDefinition Width="150"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    -->
+        <!--Team ID-->
+        <!--<Image Grid.Column="0" Source="/Assets/Vector_TeamID.png"  Style="{DynamicResource IconItemHT1}" />-->
+        <!--
+                    <TextBlock Foreground="#292929" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{DynamicResource TextAtasHT1}" >TEAM ID</TextBlock>
+                    <Label Foreground="#292929" Content="2000" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Style="{DynamicResource TextAtasHT2}" />
+
+                    -->
+        <!--State-->
+        <!--
+                    <Image Grid.Column="1" Source="/Assets/Vector_State.png" Margin="0,5,0,5"/>
+                    <TextBlock Foreground="#292929" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{DynamicResource TextAtasHT1}">STATE</TextBlock>
+                    <Label Foreground="#292929" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Bottom" Style="{DynamicResource TextAtasHT2}" Content="MISSION-READY"/>
+
+                    -->
+        <!--Mission Time-->
+        <!--
+                    <Image Grid.Column="3" Source="/Assets/gcs_time.png" Margin="0,5,1,5"/>
+                    <TextBlock Foreground="#292929" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{DynamicResource TextAtasHT1}">MISSION_TIME</TextBlock>
+                    <Label Foreground="#292929" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Bottom" Style="{DynamicResource TextAtasHT2}" Content="00:00:00"/>
+
+                    -->
+        <!--Satelit-->
+        <!--
+                    <Image Grid.Column="5" Source="/Assets/Vector_satelit.png" Margin="0,5,1,5"/>
+                    <TextBlock Foreground="#292929" Grid.Column="6" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{DynamicResource TextAtasHT1}">SATELLITES</TextBlock>
+                    <Label Foreground="#292929" Grid.Column="6" HorizontalAlignment="Left" VerticalAlignment="Bottom" Style="{DynamicResource TextAtasHT2}" Content="12 (Good)"/>
+
+                    -->
+        <!--baterai-->
+        <!--
+                    <Image Grid.Column="7" Source="/Assets/battery.png" Margin="0,5,1,5"/>
+                    <TextBlock Foreground="#292929" Grid.Column="8" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{DynamicResource TextAtasHT1}">BATTERIES</TextBlock>
+                    <Label Foreground="#292929" Grid.Column="8" HorizontalAlignment="Left" VerticalAlignment="Bottom" Style="{DynamicResource TextAtasHT2}" Content="100% /8.4 v "/>
+
+                    -->
+        <!--Air speed-->
+        <!--
+                    <Image Grid.Column="9" Source="/Assets/Vector_Air.png" Margin="0,5,1,5"/>
+                    <TextBlock Foreground="#292929" Grid.Column="10" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{DynamicResource TextAtasHT1}">AIR SPEED</TextBlock>
+                    <Label Foreground="#292929" Grid.Column="10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Style="{DynamicResource TextAtasHT2}" Content="10.0 m/s "/>
+
+
+                </Grid>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="2" CornerRadius="10" Background="#FAFAFA" Margin="0 3 7 5">
+                <Border.Effect>
+                    <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
+                </Border.Effect>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        -->
+        <!--<ColumnDefinition Width="55"></ColumnDefinition>-->
+        <!--
+                        <ColumnDefinition Width="38"></ColumnDefinition>
+                        <ColumnDefinition Width="45*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    -->
+        <!--<Image Grid.Column="0" Source="/Assets/Vector_COM.png" Margin="0,5,0,5"/>-->
+        <!--
+                    <Border Grid.Column="0" CornerRadius="50" Background="#FF6157" Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBlock Foreground="#292929" FontFamily="Inter" FontSize="17" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2" Style="{DynamicResource TextAtasHT1}">
+                    GCS COM
+                    </TextBlock>
+                    <Label Foreground="#777575" FontFamily="Inter" FontWeight="Regular" FontSize="15" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Content="Disconnected"/>
+
+                </Grid>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="3" CornerRadius="10" Background="#FAFAFA" Margin="0 3 7 5">
+                <Border.Effect>
+                    <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
+                </Border.Effect>
+                <Image Grid.Column="0" Source="/Assets/connected.png" Margin="0,5,0,5"/>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="4" CornerRadius="10" Background="#FAFAFA" Margin="0 3 7 5">
+                <Border.Effect>
+                    <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
+                </Border.Effect>
+                <Image Grid.Column="0" Source="/Assets/refresh.png" Margin="6,8,6,7"/>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="5" CornerRadius="10" Background="#FAFAFA" Margin="0 3 7 5">
+                <Border.Effect>
+                    <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
+                </Border.Effect>
+                <Label Foreground="#292929" FontFamily="Inter" FontWeight="Bold" FontSize="17" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2" Content="COMPORT"/>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="6" CornerRadius="10" Background="#FAFAFA" Margin="0 3 0 5" >
+                <Border.Effect>
+                    <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
+                </Border.Effect>
+                <Label Foreground="#292929" FontFamily="Inter" FontWeight="Bold" FontSize="17" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2" Content="BAUDRATE"/>
+            </Border>
+        </Grid>-->
+
+        <!--HEADER BAWAH-->
+        <Grid Grid.Row="1" Margin="0,60,0,0" Grid.RowSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="0.32*"></ColumnDefinition>
+                <ColumnDefinition Width="0.15*"></ColumnDefinition>
+                <ColumnDefinition Width="0.33*"></ColumnDefinition>
+                <ColumnDefinition Width="0.15*"></ColumnDefinition>
+                <ColumnDefinition Width="0.28*"></ColumnDefinition>
+                <ColumnDefinition Width="0.15*"></ColumnDefinition>
+                <ColumnDefinition Width="0.28*"></ColumnDefinition>
+                <ColumnDefinition Width="0.15*"></ColumnDefinition>
+                <ColumnDefinition Width="0.38*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <RadioButton x:Name="HomeMenu" Click="HomeNavClick" Style="{DynamicResource HomeMenu}" IsChecked="True" Grid.Column="1" Margin="1,1,1,1"/>
+            <RadioButton x:Name="GraphMenu" Click="GraphNavClick" Style="{DynamicResource GraphMenu}" Grid.Column="3" Margin="1,1,1,1"/>
+            <RadioButton x:Name="MapMenu" Click="MapNavClick" Style="{DynamicResource MapMenu}"  Grid.Column="5" Margin="1,1,1,1"/>
+            <RadioButton x:Name="DataMenu" Click="DataNavClick" Style="{DynamicResource DataMenu}"  Grid.Column="7" Margin="1,1,1,1"/>
+            <RadioButton x:Name="SettingMenu" Click="SettingNavClick" Style="{DynamicResource SettingMenu}"  Grid.Column="9" Margin="1,1,1,1"/>
+        </Grid>
+
+        <!--ELEMEN-->
+        <Border Grid.Row="2" CornerRadius="0" Background="Transparent" Margin="0,55,0,65" Grid.RowSpan="4">
+            <TabControl x:Name="MainPage" Background="Transparent" BorderBrush="Transparent" ScrollViewer.CanContentScroll="True" SelectionChanged="MainPage_SelectionChanged">
+                <TabControl.ItemContainerStyle>
+                    <Style TargetType="{x:Type TabItem}">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                    </Style>
+                </TabControl.ItemContainerStyle>
+                <!--BHOME-->
+                <TabItem>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="10*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="13*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="10*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0"></RowDefinition>
+                            <RowDefinition Height="220*"></RowDefinition>
+                            <RowDefinition Height="15*"></RowDefinition>
+                            <RowDefinition Height="15*"></RowDefinition>
+                            <RowDefinition Height="15*"></RowDefinition>
+                            <RowDefinition Height="220*"></RowDefinition>
+                            <RowDefinition Height="14*"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <!--Serial-->
+                        <Border Grid.Row="1" Background="#FAFAFA" CornerRadius="15" Grid.RowSpan="3" Grid.ColumnSpan="2" Margin="19,0,0,0">
+                            <Border.Effect>
+                                <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
+                            </Border.Effect>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition  Width="1*"></ColumnDefinition>
+                                    <ColumnDefinition Width="30*"></ColumnDefinition>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1.5*"></RowDefinition>
+                                    <RowDefinition Height="10*"></RowDefinition>
+                                    <RowDefinition Height="1*"></RowDefinition>
+                                    <RowDefinition Height="2*"></RowDefinition>
+                                    <RowDefinition Height="1*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <TextBlock Foreground="#292929" Grid.Column="1" FontSize="14" FontWeight="Bold" FontFamily="Inter" HorizontalAlignment="Center" VerticalAlignment="Center">SERIAL LOG DATA</TextBlock>
+                                <Border Grid.Row="1" Background="#D9D9D9" Margin="0,0,0,0" Grid.Column="1" CornerRadius="15"></Border>
+                                <Border Grid.Row="3" Background="#D9D9D9" Margin="0,0,0,0" Grid.Column="1" CornerRadius="10">
+                                    <Label Foreground="#292929" Content="PACKET RECEIVED COUNT : 1" FontWeight="Bold" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource TextAtasHT2}" />
+                                </Border>
+                            </Grid>
+                        </Border>
+
+                        <!--peak payload data-->
+                        <Border Background="#FAFAFA" CornerRadius="20" Grid.Column="3" Grid.Row="1" Grid.RowSpan="2">
+                            <Border.Effect>
+                                <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
+                            </Border.Effect>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                    <ColumnDefinition Width="30*"></ColumnDefinition>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1.5*"></RowDefinition>
+                                    <RowDefinition Height="10*"></RowDefinition>
+                                    <RowDefinition Height="1*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <TextBlock Foreground="#292929" Grid.Column="1" FontSize="14" FontWeight="Bold" FontFamily="Inter" HorizontalAlignment="Center" VerticalAlignment="Center">PEAK CANSAT DATA</TextBlock>
+                                <Border Grid.Row="1" Background="#D9D9D9" Grid.Column="1" CornerRadius="20"/>
+
+                            </Grid>
+                        </Border>
+
+                        <!--3D-->
+                        <Border Background="#FAFAFA" CornerRadius="20" Grid.Column="5" Grid.Row="1" Grid.RowSpan="2">
+                            <Border.Effect>
+                                <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
+                            </Border.Effect>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                    <ColumnDefinition Width="20*" ></ColumnDefinition>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1.5*"></RowDefinition>
+                                    <RowDefinition Height="10*"></RowDefinition>
+                                    <RowDefinition Height="1*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <TextBlock Foreground="#292929" Grid.Column="1" FontSize="14" FontWeight="Bold" FontFamily="Inter" HorizontalAlignment="Center" VerticalAlignment="Center">3D MODEL</TextBlock>
+                                <Border Grid.Row="1" Background="#D9D9D9" Grid.Column="1" CornerRadius="20"></Border>
+                            </Grid>
+                        </Border>
+
+                        <!--command-->
+                        <Border Background="#FAFAFA"  CornerRadius="15" Grid.Row="5" Grid.Column="1" >
+                            <Border.Effect>
+                                <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
+                            </Border.Effect>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                    <ColumnDefinition Width="2.5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="15*"></ColumnDefinition>
+                                    <ColumnDefinition Width="2.5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="2*"></RowDefinition>
+                                    <RowDefinition Height="10*"></RowDefinition>
+                                    <RowDefinition Height="0.5*"></RowDefinition>
+                                    <RowDefinition Height="3*"></RowDefinition>
+                                    <RowDefinition Height="1*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <TextBlock Foreground="#292929" Grid.Column="2" FontSize="14" FontWeight="Bold" FontFamily="Inter" HorizontalAlignment="Center" VerticalAlignment="Center">COMMAND TERMINAL</TextBlock>
+                                <Border Grid.Row="1" Background="#D9D9D9" Grid.Column="1" CornerRadius="15" Grid.ColumnSpan="3"/>
+                                <Border Grid.Row="3" Background="#D9D9D9" Grid.Column="2" CornerRadius="15" Margin="0,0,0,0"/>
+                                <Border Grid.Row="3" Background="#D9D9D9" Grid.Column="1" CornerRadius="15" Margin="0,0,5,0"/>
+                                <Border Grid.Row="3" Background="#D9D9D9" Grid.Column="3" CornerRadius="15" Margin="5,0,0,0">
+                                    <Image Source="/Assets/kirim.png" Height="23" HorizontalAlignment="Left" Margin="10,7,0,6"></Image>
+                                </Border>
+                            </Grid>
+                        </Border>
+
+                        <!--gps-->
+                        <Border Background="#FAFAFA" CornerRadius="20" Grid.Column="3" Grid.Row="4" Grid.RowSpan="2">
+                            <Border.Effect>
+                                <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
+                            </Border.Effect>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                    <ColumnDefinition Width="30*"></ColumnDefinition>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1.5*"></RowDefinition>
+                                    <RowDefinition Height="10*"></RowDefinition>
+                                    <RowDefinition Height="1*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <TextBlock Foreground="#292929" Grid.Column="1" FontSize="14" FontWeight="Bold" FontFamily="Inter" HorizontalAlignment="Center" VerticalAlignment="Center">GPS DATA</TextBlock>
+                                <Border Grid.Row="1" Background="#D9D9D9" Grid.Column="1" CornerRadius="20"/>
+                            </Grid>
+                        </Border>
+
+                        <!--mini-->
+                        <Border Background="#FAFAFA" CornerRadius="20" Grid.Column="5" Grid.Row="4" Grid.RowSpan="2">
+                            <Border.Effect>
+                                <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
+                            </Border.Effect>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                    <ColumnDefinition Width="20*" ></ColumnDefinition>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1.5*"></RowDefinition>
+                                    <RowDefinition Height="10*"></RowDefinition>
+                                    <RowDefinition Height="1*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <TextBlock Foreground="#292929" Grid.Column="1" FontSize="14" FontWeight="Bold" FontFamily="Inter" HorizontalAlignment="Center" VerticalAlignment="Center">MINI MAP</TextBlock>
+                                <Border Grid.Row="1" Background="#D9D9D9" Margin="0,0,0,0" Grid.Column="1" CornerRadius="20"></Border>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </TabItem>
+
+                <!--BGRAPH-->
+                <TabItem>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1.5*"></RowDefinition>
+                            <RowDefinition Height="20*"></RowDefinition>
+                            <RowDefinition Height="1.5*"></RowDefinition>
+                            <RowDefinition Height="20*"></RowDefinition>
+                            <RowDefinition Height="1.5*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="20*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="20*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="20*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="20*"></ColumnDefinition>
+                            <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <!--AIR-->
+                        <Border Background="#FAFAFA" Grid.Column="1" Grid.Row="1" CornerRadius="15">
+                            <Border.Effect>
+                                <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
+                            </Border.Effect>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                                    <ColumnDefinition Width="20*"></ColumnDefinition>
+                                    <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="2*"></RowDefinition>
+                                    <RowDefinition Height="15*"></RowDefinition>
+                                    <RowDefinition Height="0.8*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <TextBlock Foreground="#292929" Grid.Column="1" FontSize="14" FontWeight="Bold" FontFamily="Inter" HorizontalAlignment="Center" VerticalAlignment="Center">AIR PRESSURE</TextBlock>
+                                <Border Grid.Row="1" Background="#D9D9D9" Grid.Column="1" CornerRadius="15"></Border>
+                            </Grid>
+                        </Border>
+
+                        <!--ALTITUDE-->
+                        <Border Background="#FAFAFA" Grid.Column="3" Grid.Row="1" CornerRadius="15">
+                            <Border.Effect>
+                                <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
+                            </Border.Effect>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                                    <ColumnDefinition Width="20*"></ColumnDefinition>
+                                    <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="2*"></RowDefinition>
+                                    <RowDefinition Height="15*"></RowDefinition>
+                                    <RowDefinition Height="0.8*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <TextBlock Foreground="#292929" Grid.Column="1" FontSize="14" FontWeight="Bold" FontFamily="Inter" HorizontalAlignment="Center" VerticalAlignment="Center">ALTITUDE</TextBlock>
+                                <Border Grid.Row="1" Background="#D9D9D9" Grid.Column="1" CornerRadius="15"></Border>
+                            </Grid>
+                        </Border>
+
+                        <!--VOLTAGE-->
+                        <Border Background="#FAFAFA" Grid.Column="5" Grid.Row="1" CornerRadius="15">
+                            <Border.Effect>
+                                <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
+                            </Border.Effect>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                                    <ColumnDefinition Width="20*"></ColumnDefinition>
+                                    <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="2*"></RowDefinition>
+                                    <RowDefinition Height="15*"></RowDefinition>
+                                    <RowDefinition Height="0.8*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <TextBlock Foreground="#292929" Grid.Column="1" FontSize="14" FontWeight="Bold" FontFamily="Inter" HorizontalAlignment="Center" VerticalAlignment="Center">VOLTAGE</TextBlock>
+                                <Border Grid.Row="1" Background="#D9D9D9" Grid.Column="1" CornerRadius="15"></Border>
+                            </Grid>
+                        </Border>
+
+                        <!--TILT-->
+                        <Border Background="#FAFAFA" Grid.Column="7" Grid.Row="1" CornerRadius="15">
+                            <Border.Effect>
+                                <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
+                            </Border.Effect>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                                    <ColumnDefinition Width="20*"></ColumnDefinition>
+                                    <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="2*"></RowDefinition>
+                                    <RowDefinition Height="15*"></RowDefinition>
+                                    <RowDefinition Height="0.8*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <TextBlock Foreground="#292929" Grid.Column="1" FontSize="14" FontWeight="Bold" FontFamily="Inter" HorizontalAlignment="Center" VerticalAlignment="Center">TILT</TextBlock>
+                                <Border Grid.Row="1" Background="#D9D9D9" Grid.Column="1" CornerRadius="15"></Border>
+                            </Grid>
+                        </Border>
+
+                        <!--TEMPERATURE-->
+                        <Border Background="#FAFAFA" Grid.Column="1" Grid.Row="3" CornerRadius="15">
+                            <Border.Effect>
+                                <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
+                            </Border.Effect>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                                    <ColumnDefinition Width="20*"></ColumnDefinition>
+                                    <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="2*"></RowDefinition>
+                                    <RowDefinition Height="15*"></RowDefinition>
+                                    <RowDefinition Height="0.8*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <TextBlock Foreground="#292929" Grid.Column="1" FontSize="14" FontWeight="Bold" FontFamily="Inter" HorizontalAlignment="Center" VerticalAlignment="Center">TEMPERATUR</TextBlock>
+                                <Border Grid.Row="1" Background="#D9D9D9" Grid.Column="1" CornerRadius="15"></Border>
+                            </Grid>
+                        </Border>
+
+                        <!--GPS SATELIT-->
+                        <Border Background="#FAFAFA" Grid.Column="3" Grid.Row="3" CornerRadius="15">
+                            <Border.Effect>
+                                <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
+                            </Border.Effect>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                                    <ColumnDefinition Width="20*"></ColumnDefinition>
+                                    <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="2*"></RowDefinition>
+                                    <RowDefinition Height="15*"></RowDefinition>
+                                    <RowDefinition Height="0.8*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <TextBlock Foreground="#292929" Grid.Column="1" FontSize="14" FontWeight="Bold" FontFamily="Inter" HorizontalAlignment="Center" VerticalAlignment="Center">GPS SATELIT</TextBlock>
+                                <Border Grid.Row="1" Background="#D9D9D9" Grid.Column="1" CornerRadius="15"></Border>
+                            </Grid>
+                        </Border>
+
+                        <!--AIR SPEED-->
+                        <Border Background="#FAFAFA" Grid.Column="5" Grid.Row="3" CornerRadius="15">
+                            <Border.Effect>
+                                <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
+                            </Border.Effect>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                                    <ColumnDefinition Width="20*"></ColumnDefinition>
+                                    <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="2*"></RowDefinition>
+                                    <RowDefinition Height="15*"></RowDefinition>
+                                    <RowDefinition Height="0.8*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <TextBlock Foreground="#292929" Grid.Column="1" FontSize="14" FontWeight="Bold" FontFamily="Inter" HorizontalAlignment="Center" VerticalAlignment="Center">AIR SPEED</TextBlock>
+                                <Border Grid.Row="1" Background="#D9D9D9" Grid.Column="1" CornerRadius="15"></Border>
+                            </Grid>
+                        </Border>
+
+                        <!--LL-->
+                        <Border Background="#FAFAFA" Grid.Column="7" Grid.Row="3" CornerRadius="15">
+                            <Border.Effect>
+                                <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
+                            </Border.Effect>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                                    <ColumnDefinition Width="20*"></ColumnDefinition>
+                                    <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="2*"></RowDefinition>
+                                    <RowDefinition Height="15*"></RowDefinition>
+                                    <RowDefinition Height="0.8*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <TextBlock Foreground="#292929" Grid.Column="1" FontSize="14" FontWeight="Bold" FontFamily="Inter" HorizontalAlignment="Center" VerticalAlignment="Center">LATITUDE AND LONGITUDE</TextBlock>
+                                <Border Grid.Row="1" Background="#D9D9D9" Grid.Column="1" CornerRadius="15"></Border>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </TabItem>
+
+                <!--BMAP-->
+                <TabItem>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1.5*"></RowDefinition>
+                            <RowDefinition Height="30*"></RowDefinition>
+                            <RowDefinition Height="1.5*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="60*"></ColumnDefinition>
+                            <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="20*"></ColumnDefinition>
+                            <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Border Background="#FAFAFA" Grid.Column="1" Grid.Row="1" CornerRadius="20"></Border>
+                        <Border Background="#FAFAFA" Grid.Column="3" Grid.Row="1" CornerRadius="20">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                    <ColumnDefinition Width="10*"></ColumnDefinition>
+                                    <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="10*"></ColumnDefinition>
+                                    <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="10*"></ColumnDefinition>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1.5*"></RowDefinition>
+                                    <RowDefinition Height="10*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="30*"></RowDefinition>
+                                    <RowDefinition Height="1.5*"></RowDefinition>
+                                    <RowDefinition Height="30*"></RowDefinition>
+                                    <RowDefinition Height="1.5*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Border Grid.Row="1" Background="#D9D9D9" Grid.Column="1" CornerRadius="15">
+                                    <Image Source="/Assets/icon-street.png" Height="40"></Image>
+                                </Border>
+                                <Border Grid.Row="1" Background="#D9D9D9" Grid.Column="3" CornerRadius="15">
+                                    <Image Source="/Assets/icon-satelite.png" Height="40"></Image>
+                                </Border>
+                                <Border Grid.Row="1" Background="#D9D9D9" Grid.Column="5" CornerRadius="15">
+                                    <Image Source="/Assets/icon-terrain.png" Height="40"></Image>
+                                </Border>
+                                <Border Grid.Row="3" Background="#D9D9D9" Grid.Column="1" CornerRadius="15" Grid.ColumnSpan="5">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="2*"/>
+                                            <RowDefinition Height="10*"/>
+                                        </Grid.RowDefinitions>
+                                        <TextBlock Foreground="#292929" Grid.Column="1" FontSize="14" FontWeight="Bold" FontFamily="Inter" HorizontalAlignment="Center" VerticalAlignment="Center">STATUS</TextBlock>
+                                    </Grid>
+
+                                </Border>
+                                <Border Grid.Row="5" Background="#D9D9D9" Grid.Column="1" CornerRadius="15" Grid.ColumnSpan="5">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="2*"/>
+                                            <RowDefinition Height="10*"/>
+                                        </Grid.RowDefinitions>
+                                        <TextBlock Foreground="#292929" Grid.Column="1" FontSize="14" FontWeight="Bold" FontFamily="Inter" HorizontalAlignment="Center" VerticalAlignment="Center">COORDINATE</TextBlock>
+                                    </Grid>
+                                </Border>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </TabItem>
+
+                <!--DATA-->
+                <TabItem>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1.5*"></RowDefinition>
+                            <RowDefinition Height="3*"></RowDefinition>
+                            <RowDefinition Height="1*"></RowDefinition>
+                            <RowDefinition Height="30*"></RowDefinition>
+                            <RowDefinition Height="1.5*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="30*"></ColumnDefinition>
+                            <ColumnDefinition Width="30*"></ColumnDefinition>
+                            <!--<ColumnDefinition Width="1110"></ColumnDefinition>-->
+                            <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <!--<Border Background="#DFDEDF" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"></Border>-->
+                        <TextBlock Foreground="#292929" Grid.Column="1" Grid.Row="1" FontFamily="Inter" FontWeight="ExtraBold" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                            SIMULATION
+                        </TextBlock>
+                        <TextBlock Foreground="#777575" Grid.Column="2" Grid.Row="1" FontFamily="Inter" FontWeight="ExtraBold" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            PAYLOAD
+                        </TextBlock>
+                        <Border Background="#DFDEDF" BorderThickness="1" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2">
+                            <Border.CornerRadius>
+                                <CornerRadius TopLeft="15" TopRight="15" BottomRight="0" BottomLeft="0"/>
+                            </Border.CornerRadius>
+                        </Border>
+                        <Border Background="#FAFAFA" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2"></Border>
+                    </Grid>
+                </TabItem>
+
+                <!--BSETTING-->
+                <TabItem>
+                    <Border Background="WhiteSmoke">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.2*"></RowDefinition>
+                                <RowDefinition Height="250"></RowDefinition>
+                                <RowDefinition Height="30"></RowDefinition>
+                                <RowDefinition Height="30"></RowDefinition>
+                                <RowDefinition Height="150"></RowDefinition>
+                                <RowDefinition Height="0.2*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                                <ColumnDefinition Width="30*"></ColumnDefinition>
+                                <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                                <ColumnDefinition Width="30*"></ColumnDefinition>
+                                <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Row="1" Grid.Column="1" Background="White" CornerRadius="30"></Border>
+                            <Border Grid.Row="1" Grid.Column="3" Background="White" CornerRadius="30"></Border>
+                            <TextBlock Grid.Row="3" Grid.Column="1" Foreground="#292929" FontFamily="Inter" FontWeight="Bold" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="3">
+                        SPONSORED BY:
+                            </TextBlock>
+                            <Image Grid.Column="1" Grid.Row="4" Source="/Assets/Telkom_Indonesia.png" HorizontalAlignment="Left" VerticalAlignment="Center"  Style="{DynamicResource sponsor}" />
+                            <Image Grid.Column="1" Grid.Row="4" Source="/Assets/telkomsat.png" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250" Height="100" Style="{DynamicResource sponsor}" />
+                            <Image Grid.Column="1" Grid.Row="4" Source="/Assets/logo-telkom-schools.png" HorizontalAlignment="Right" VerticalAlignment="Center" Width="200" Height="80" Style="{DynamicResource sponsor}" />
+                            <Image Grid.Column="3" Grid.Row="4" Source="/Assets/sponsor1_bener1.png" HorizontalAlignment="Center" VerticalAlignment="Center" Width="620" Height="100" Style="{DynamicResource sponsor}" />
+
+                        </Grid>
+                    </Border>
+                </TabItem>
+
+            </TabControl>
+        </Border>
+
+
+        <!--FOOTER-->
+        <Grid Grid.Row="5" Background="Transparent">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                <ColumnDefinition Width="1.2*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                <ColumnDefinition Width="1.8*"></ColumnDefinition>
+                <ColumnDefinition Width="1.4*"></ColumnDefinition>
+                <ColumnDefinition Width="1.2*"></ColumnDefinition>
+                <ColumnDefinition Width="1.9*"></ColumnDefinition>
+                <ColumnDefinition Width="0.3*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.7*"></ColumnDefinition>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Source="/Assets/gcs_time.png"  Style="{DynamicResource IconFooter}"/>
+                    <TextBlock Foreground="Black" Grid.Column="1" Style="{DynamicResource TextAtasFooter}" HorizontalAlignment="Left" VerticalAlignment="Top">GCS Time</TextBlock>
+                    <Label Foreground="#292929" Content="20:00:00" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Style="{DynamicResource TextBawahFooter}" />
+                </Grid>
+            </Border>
+
+            <Border  Background="Transparent" Grid.Column="2">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        <ColumnDefinition Width="1.6*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Source="/Assets/gcs_location.png"  Style="{DynamicResource IconFooter}"/>
+                    <TextBlock Foreground="Black" Grid.Column="1" Style="{DynamicResource TextAtasFooter}" HorizontalAlignment="Left" VerticalAlignment="Top">GCS Location</TextBlock>
+                    <Label Foreground="#292929" Content="-7.5988992,111.8994432" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Style="{DynamicResource TextBawahFooter}" />
+
+                </Grid>
+            </Border>
+
+            <Border  Background="Transparent" Grid.Column="3">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        <ColumnDefinition Width="1.6*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Source="/Assets/gcs_tocansat.png"  Style="{DynamicResource IconFooter}"/>
+                    <TextBlock Foreground="Black" Grid.Column="1" Style="{DynamicResource TextAtasFooter}" HorizontalAlignment="Left" VerticalAlignment="Top">GCS to CanSat</TextBlock>
+                    <Label Foreground="#292929" Content="100 meters to NE" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Style="{DynamicResource TextBawahFooter}" />
+                </Grid>
+            </Border>
+
+            <Border  Background="Transparent" Grid.Column="4">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        <ColumnDefinition Width="1.6*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Source="/Assets/transmission.png" Style="{DynamicResource IconFooter}"/>
+                    <TextBlock Foreground="Black" Grid.Column="1" Style="{DynamicResource TextAtasFooter}" HorizontalAlignment="Left" VerticalAlignment="Top">Transmission Status</TextBlock>
+                    <Label Foreground="#292929" Content="Disconnected" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Style="{DynamicResource TextBawahFooter}" />
+                </Grid>
+            </Border>
+
+            <Border  Background="Transparent" Grid.Column="5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.7*"></ColumnDefinition>
+                        <ColumnDefinition Width="1.6*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Source="/Assets/memory.png"  Style="{DynamicResource IconFooter}"/>
+                    <TextBlock Foreground="Black" Grid.Column="1" Style="{DynamicResource TextAtasFooter}" HorizontalAlignment="Left" VerticalAlignment="Top">Memory Used</TextBlock>
+                    <Label Foreground="#292929" Content="300 MB" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Style="{DynamicResource TextBawahFooter}" />
+                </Grid>
+            </Border>
+
+            <Border  Background="Transparent" Grid.Column="6">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.7*"></ColumnDefinition>
+                        <ColumnDefinition Width="1.6*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Source="/Assets/cpu.png"  Style="{DynamicResource IconFooter}"/>
+                    <TextBlock Foreground="Black" Grid.Column="1" Style="{DynamicResource TextAtasFooter}" HorizontalAlignment="Left" VerticalAlignment="Top">CPU Usage</TextBlock>
+                    <Label Foreground="#292929" Content="2%" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Style="{DynamicResource TextBawahFooter}" />
+                </Grid>
+            </Border>
+
+            <Border  Background="Transparent" Grid.Column="7">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        <ColumnDefinition Width="1.6*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Viewbox Grid.Column="0">
+                        <StackPanel Orientation="Vertical">
+                            <Border BorderBrush="#292929" CornerRadius="5" Width="35" Height="55" Margin="5,15,5,10">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Border x:Name="BatteryPercentage" Width="35" Grid.Column="0" Background="#292929" CornerRadius="5"/>
+                                </Grid>
+                            </Border>
+                        </StackPanel>
+                    </Viewbox>
+                    <Label x:Name="BatteryStatus" Content="(100%)" Foreground="#292929" Grid.Column="1" Height="27" FontFamily="Inter" FontSize="16" FontWeight="SemiBold" Margin="5,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <Label x:Name="batteryLaptop" Foreground="#292929" Content="200 minutes remaining" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Style="{DynamicResource TextBawahFooter}" Height="35" Margin="0,30,0,0" />
+                </Grid>
+            </Border>
+
+
+
+        </Grid>
+
+    </Grid>
+</Window>
