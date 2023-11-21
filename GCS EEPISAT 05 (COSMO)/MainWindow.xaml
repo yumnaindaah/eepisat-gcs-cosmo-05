@@ -32,30 +32,25 @@
                 <RowDefinition Height="0*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.19*"></ColumnDefinition>
+                <ColumnDefinition Width="1.25*"></ColumnDefinition>
                 <ColumnDefinition Width="1*"></ColumnDefinition>
-                <ColumnDefinition Width="180"></ColumnDefinition>
-                <ColumnDefinition Width="6"></ColumnDefinition>
-                <ColumnDefinition Width="110"></ColumnDefinition>
-                <ColumnDefinition Width="65"></ColumnDefinition>
-                <ColumnDefinition Width="450"></ColumnDefinition>
-                <ColumnDefinition Width="65"></ColumnDefinition>
-                <ColumnDefinition Width="125"></ColumnDefinition>
-                <ColumnDefinition Width="7"></ColumnDefinition>
-                <ColumnDefinition Width="150"></ColumnDefinition>
-                <ColumnDefinition Width="6"></ColumnDefinition>
-                <ColumnDefinition Width="145"></ColumnDefinition>
+                <ColumnDefinition Width="4.5*"></ColumnDefinition>
                 <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="1.3*"></ColumnDefinition>
+                <ColumnDefinition Width="1.2*"></ColumnDefinition>
+                <ColumnDefinition Width="0.18*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <!--Logo-->
-            <Border Grid.Row="0" Grid.Column="1" CornerRadius="20" Background="#FAFAFA" Margin="0,10,0,10">
+            <Border Grid.Column="1" CornerRadius="20" Background="#FAFAFA" Margin="0,10,0,10">
                 <Border.Effect>
                     <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
                 </Border.Effect>
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="60"></ColumnDefinition>
-                        <ColumnDefinition Width="60"></ColumnDefinition>
-                        <ColumnDefinition Width="60"></ColumnDefinition>
+                        <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.3*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Image x:Name="IconItemHA1" Grid.Column="0" Source="/Assets/CanSat_logo.png" Style="{DynamicResource IconItemHA1}" />
                     <Image Grid.Column="1" Source="/Assets/pens.png" Style="{DynamicResource IconItemHA1}" />
@@ -63,28 +58,28 @@
                 </Grid>
             </Border>
             <!--Bendera-->
-            <Border Grid.Column="3" CornerRadius="20" Background="#FAFAFA" Margin="0,10,0,10">
+            <Border Grid.Column="2" CornerRadius="20" Background="#FAFAFA" Margin="5,10,5,10">
                 <Border.Effect>
                     <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
                 </Border.Effect>
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="50"></ColumnDefinition>
-                        <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Image Grid.Column="0" Source="/Assets/Flag.png" Style="{DynamicResource IconItemHA2}"/>
                     <Label Content="INA" Foreground="#292929" FontFamily="Montserrat" FontWeight="Bold" FontSize="25" Height="35" Grid.Column="1" />
                 </Grid>
             </Border>
             <!--Import Button-->
-            <Border Grid.Column="7" CornerRadius="20" Background="#FAFAFA" Margin="0,10,0,10">
+            <Border Grid.Column="4" CornerRadius="20" Background="#FAFAFA" Margin="5,10,5,10">
                 <Border.Effect>
                     <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
                 </Border.Effect>
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="55"></ColumnDefinition>
-                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.7*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Image Grid.Column="0" Source="/Assets/import csv.png" Style="{DynamicResource IconItemHA2}"/>
                     <TextBlock Foreground="#292929" FontFamily="Inter" FontWeight="SemiBold" FontSize="18" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -95,18 +90,18 @@
                 </Grid>
             </Border>
             <!--CanSat Mode-->
-            <Border Grid.Column="9" CornerRadius="20" Background="#FAFAFA" Margin="0,10,0,10">
+            <Border Grid.Column="5" CornerRadius="20" Background="#FAFAFA" Margin="5,10,5,10">
                 <Border.Effect>
                     <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
                 </Border.Effect>
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="50"></ColumnDefinition>
-                        <ColumnDefinition Width="58"></ColumnDefinition>
-                        <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.7*"></ColumnDefinition>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Image Grid.Column="0" Source="/Assets/CanSat_Modepng.png" Style="{DynamicResource IconItemHA2}"/>
-                    <TextBlock Foreground="#292929" FontFamily="Inter" FontWeight="DemiBold" FontSize="18" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <TextBlock Foreground="#292929" FontFamily="Inter" FontWeight="DemiBold" FontSize="18" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center">
                     CanSat
                     <LineBreak></LineBreak>
                     Mode
@@ -115,15 +110,15 @@
                 </Grid>
             </Border>
             <!--Window Interaction-->
-            <Border Grid.Column="11" CornerRadius="20" Background="#FAFAFA" Margin="0,10,0,10">
+            <Border Grid.Column="6" CornerRadius="20" Background="#FAFAFA" Margin="0,10,0,10">
                 <Border.Effect>
                     <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
                 </Border.Effect>
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="48.3"></ColumnDefinition>
-                        <ColumnDefinition Width="48.3"></ColumnDefinition>
-                        <ColumnDefinition Width="43.3"></ColumnDefinition>
+                        <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.3*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Border Grid.Column="0" CornerRadius="50" Background="#2ACB42" Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center"></Border>
                     <Border Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -135,23 +130,23 @@
                 </Grid>
             </Border>
 
-            <Label x:Name="Title1" Grid.Column="5" Content="BAMANTARA EEPISAT | GROUND CONTROL STATION" Foreground="#292929" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Height="40" Width="460" Margin="0,10,0,0"/>
-            <Label x:Name="Title2" Grid.Column="5" Content="POLITEKNIK ELEKTRONIKA NEGERI SURABAYA" Foreground="#292929" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Regular" FontSize="20" Height="40" Width="416" Margin="0,40,0,0"/>
+            <Label x:Name="Title1" Grid.Column="3" Content="BAMANTARA EEPISAT | GROUND CONTROL STATION" Foreground="#292929" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Height="40" Width="460" Margin="0,10,0,0"/>
+            <Label x:Name="Title2" Grid.Column="3" Content="POLITEKNIK ELEKTRONIKA NEGERI SURABAYA" Foreground="#292929" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontWeight="Regular" FontSize="20" Height="40" Width="416"/>
         </Grid>
 
         <!--HEADER TENGAH-->
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.01*"></ColumnDefinition>
+                <ColumnDefinition Width="0.0145*"></ColumnDefinition>
                 <ColumnDefinition Width="0.5*"></ColumnDefinition>
                 <ColumnDefinition Width="0.1*"></ColumnDefinition>
                 <ColumnDefinition Width="0.032*"></ColumnDefinition>
                 <ColumnDefinition Width="0.033*"></ColumnDefinition>
                 <ColumnDefinition Width="0.075*"></ColumnDefinition>
                 <ColumnDefinition Width="0.078*"></ColumnDefinition>
-                <ColumnDefinition Width="0.02*"></ColumnDefinition>
+                <ColumnDefinition Width="0.0145*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Border Grid.Column="1" CornerRadius="10" Background="#FAFAFA" Height="50"  HorizontalAlignment="Center" VerticalAlignment="Center" Width="760">
+            <Border Grid.Column="1" CornerRadius="10" Background="#FAFAFA" Margin="0,7,5,5" >
                 <Border.Effect>
                     <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
                 </Border.Effect>
@@ -266,7 +261,7 @@
             </Border>
 
             <!-- GCS Com -->
-            <Border Grid.Column="2" CornerRadius="10" Background="#FAFAFA" Height="50">
+            <Border Grid.Column="2" CornerRadius="10" Background="#FAFAFA" Margin="0,7,0,5">
                 <Border.Effect>
                     <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
                 </Border.Effect>

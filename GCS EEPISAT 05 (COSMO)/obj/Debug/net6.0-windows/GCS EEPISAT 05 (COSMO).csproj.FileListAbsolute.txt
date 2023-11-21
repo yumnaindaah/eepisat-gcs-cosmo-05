@@ -84,3 +84,81 @@ D:\PENS!\BAMANTARA EEPISAT\G-05\GCS\GCS EEPISAT 05 (COSMO)\GCS EEPISAT 05 (COSMO
 D:\PENS!\BAMANTARA EEPISAT\G-05\GCS\GCS EEPISAT 05 (COSMO)\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Management.dll
 D:\PENS!\BAMANTARA EEPISAT\G-05\GCS\GCS EEPISAT 05 (COSMO)\GCS EEPISAT 05 (COSMO)\obj\Debug\net6.0-windows\GCS EEPISAT 05 (COSMO).csproj.AssemblyReference.cache
 D:\PENS!\BAMANTARA EEPISAT\G-05\GCS\GCS EEPISAT 05 (COSMO)\GCS EEPISAT 05 (COSMO)\obj\Debug\net6.0-windows\GCS EEPISAT 05 (COSMO).csproj.CopyComplete
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\battery.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\CanSat_logo.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\CanSat_Modepng.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\cebener.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\coba_sponsor.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\coba_sponsor_bener.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\connected.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\cpu.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\Data.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\disconeted.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\EEPISat-Logotype.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\EEPISat-Logotype1.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\elkabener.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\Flag.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\flight_mode.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\gcs_location.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\gcs_time.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\gcs_tocansat.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\Graph.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\himit.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\Home.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\home2.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\icon-satelite.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\icon-street.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\icon-terrain.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\import csv.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\kirim.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\logo-telkom-schools.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\Map.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\mekatronika.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\memory.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\mmbbener.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\pens.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\refresh.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\satel.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\Setting.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\spebener.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\sponsor1.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\sponsor1_bener.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\sponsor1_bener1.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\street.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\telkom.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\telkomsat.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\Telkom_Indonesia.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\terrain.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\transmission.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\Vector_Air.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\Vector_COM.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\Vector_Satelit.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\Vector_State.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\Assets\Vector_TeamID.png
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\GCS EEPISAT 05 (COSMO).exe
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\GCS EEPISAT 05 (COSMO).deps.json
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\GCS EEPISAT 05 (COSMO).runtimeconfig.json
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\GCS EEPISAT 05 (COSMO).dll
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\GCS EEPISAT 05 (COSMO).pdb
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\System.CodeDom.dll
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\System.Management.dll
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Management.dll
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\obj\Debug\net6.0-windows\GCS EEPISAT 05 (COSMO).csproj.AssemblyReference.cache
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\obj\Debug\net6.0-windows\MainWindow.baml
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\obj\Debug\net6.0-windows\MainWindow.g.cs
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\obj\Debug\net6.0-windows\App.g.cs
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\obj\Debug\net6.0-windows\GCS EEPISAT 05 (COSMO)_Content.g.cs
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\obj\Debug\net6.0-windows\GCS EEPISAT 05 (COSMO)_MarkupCompile.cache
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\obj\Debug\net6.0-windows\GCS EEPISAT 05 (COSMO)_MarkupCompile.lref
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\obj\Debug\net6.0-windows\App.baml
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\obj\Debug\net6.0-windows\GCS EEPISAT 05 (COSMO).g.resources
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\obj\Debug\net6.0-windows\GCS EEPISAT 05 (COSMO).GeneratedMSBuildEditorConfig.editorconfig
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\obj\Debug\net6.0-windows\GCS EEPISAT 05 (COSMO).AssemblyInfoInputs.cache
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\obj\Debug\net6.0-windows\GCS EEPISAT 05 (COSMO).AssemblyInfo.cs
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\obj\Debug\net6.0-windows\GCS EEPISAT 05 (COSMO).csproj.CoreCompileInputs.cache
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\obj\Debug\net6.0-windows\GCS EEPISAT 05 (COSMO).csproj.CopyComplete
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\obj\Debug\net6.0-windows\GCS EEPISAT 05 (COSMO).dll
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\obj\Debug\net6.0-windows\refint\GCS EEPISAT 05 (COSMO).dll
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\obj\Debug\net6.0-windows\GCS EEPISAT 05 (COSMO).pdb
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\obj\Debug\net6.0-windows\GCS EEPISAT 05 (COSMO).genruntimeconfig.cache
+G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\obj\Debug\net6.0-windows\ref\GCS EEPISAT 05 (COSMO).dll

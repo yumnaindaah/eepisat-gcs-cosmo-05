@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "rOqT/gpam9RiAxDLpuQMSfX9yF1N0G5Wqj+OOreLRHN1nSU2QHqst+COqTxhV497mb6TaDOhNvgRRcsmyOhKfA==",
+  "dgSpecHash": "Pe3HzqNuwjZ/i/N4GlSjBeX1xnYchefNkzKyYAd4rZbLXcAMGzCMMxZRktfv3SgzaK0RHAzsb61px4MxlqRcIg==",
   "success": true,
-  "projectFilePath": "D:\\PENS!\\BAMANTARA EEPISAT\\G-05\\GCS\\GCS EEPISAT 05 (COSMO)\\GCS EEPISAT 05 (COSMO)\\GCS EEPISAT 05 (COSMO).csproj",
+  "projectFilePath": "G:\\EEPISAT\\eepisat-gcs-cosmo-05\\GCS EEPISAT 05 (COSMO)\\GCS EEPISAT 05 (COSMO).csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Admin\\.nuget\\packages\\system.codedom\\7.0.0\\system.codedom.7.0.0.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\system.management\\7.0.2\\system.management.7.0.2.nupkg.sha512"
+    "C:\\Users\\user\\.nuget\\packages\\system.codedom\\7.0.0\\system.codedom.7.0.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\system.management\\7.0.2\\system.management.7.0.2.nupkg.sha512"
   ],
   "logs": []
 }
