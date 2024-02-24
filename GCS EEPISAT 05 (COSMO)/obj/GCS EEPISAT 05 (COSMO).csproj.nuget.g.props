@@ -13,4 +13,22 @@
     <SourceRoot Include="C:\Users\m3g3n\.nuget\packages\" />
     <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
   </ItemGroup>
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)entityframework\6.4.4\buildTransitive\EntityFramework.props" Condition="Exists('$(NuGetPackageRoot)entityframework\6.4.4\buildTransitive\EntityFramework.props')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.windows.sdk.contracts\10.0.18362.2005\build\Microsoft.Windows.SDK.Contracts.props" Condition="Exists('$(NuGetPackageRoot)microsoft.windows.sdk.contracts\10.0.18362.2005\build\Microsoft.Windows.SDK.Contracts.props')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.toolkit.win32.ui.xamlapplication\6.1.2\build\Microsoft.Toolkit.Win32.UI.XamlApplication.props" Condition="Exists('$(NuGetPackageRoot)microsoft.toolkit.win32.ui.xamlapplication\6.1.2\build\Microsoft.Toolkit.Win32.UI.XamlApplication.props')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.toolkit.win32.ui.sdk\6.1.2\build\Microsoft.Toolkit.Win32.UI.SDK.props" Condition="Exists('$(NuGetPackageRoot)microsoft.toolkit.win32.ui.sdk\6.1.2\build\Microsoft.Toolkit.Win32.UI.SDK.props')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.toolkit.ui.xamlhost\6.1.2\build\Microsoft.Toolkit.UI.XamlHost.props" Condition="Exists('$(NuGetPackageRoot)microsoft.toolkit.ui.xamlhost\6.1.2\build\Microsoft.Toolkit.UI.XamlHost.props')" />
+  </ImportGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgEntityFramework Condition=" '$(PkgEntityFramework)' == '' ">C:\Users\m3g3n\.nuget\packages\entityframework\6.4.4</PkgEntityFramework>
+    <PkgSystem_Data_SQLite_EF6 Condition=" '$(PkgSystem_Data_SQLite_EF6)' == '' ">C:\Users\m3g3n\.nuget\packages\system.data.sqlite.ef6\1.0.118</PkgSystem_Data_SQLite_EF6>
+    <PkgScottPlot_WPF Condition=" '$(PkgScottPlot_WPF)' == '' ">C:\Users\m3g3n\.nuget\packages\scottplot.wpf\4.1.70</PkgScottPlot_WPF>
+    <PkgMicrosoft_Xaml_Behaviors_Wpf Condition=" '$(PkgMicrosoft_Xaml_Behaviors_Wpf)' == '' ">C:\Users\m3g3n\.nuget\packages\microsoft.xaml.behaviors.wpf\1.1.39</PkgMicrosoft_Xaml_Behaviors_Wpf>
+    <PkgMicrosoft_Toolkit_Win32_UI_SDK Condition=" '$(PkgMicrosoft_Toolkit_Win32_UI_SDK)' == '' ">C:\Users\m3g3n\.nuget\packages\microsoft.toolkit.win32.ui.sdk\6.1.2</PkgMicrosoft_Toolkit_Win32_UI_SDK>
+    <PkgMicrosoft_Toolkit_Wpf_UI_XamlHost Condition=" '$(PkgMicrosoft_Toolkit_Wpf_UI_XamlHost)' == '' ">C:\Users\m3g3n\.nuget\packages\microsoft.toolkit.wpf.ui.xamlhost\6.1.2</PkgMicrosoft_Toolkit_Wpf_UI_XamlHost>
+    <PkgMicrosoft_Toolkit_Wpf_UI_Controls Condition=" '$(PkgMicrosoft_Toolkit_Wpf_UI_Controls)' == '' ">C:\Users\m3g3n\.nuget\packages\microsoft.toolkit.wpf.ui.controls\6.1.2</PkgMicrosoft_Toolkit_Wpf_UI_Controls>
+    <PkgMaterialDesignThemes Condition=" '$(PkgMaterialDesignThemes)' == '' ">C:\Users\m3g3n\.nuget\packages\materialdesignthemes\4.9.0</PkgMaterialDesignThemes>
+    <PkgJeremyAnsel_HLSL_Targets Condition=" '$(PkgJeremyAnsel_HLSL_Targets)' == '' ">C:\Users\m3g3n\.nuget\packages\jeremyansel.hlsl.targets\1.0.13</PkgJeremyAnsel_HLSL_Targets>
+  </PropertyGroup>
 </Project>
