@@ -1,18 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "waZfdDT2TUKg+jjoYBMrkNCPhrigC/UknS03rYygFrHn9UrHDZPGy61R/ZrPMuHqdLZlfRyBn5WPMtHte0fDHQ==",
+  "dgSpecHash": "0Kp1f0DkhyLijfNoMR59rXpFAN1BUfWOQ0X+CTGWwykRU2TRR4VCFOCH3uthdowvpUElpWunTc3LTKsqf/bfaA==",
   "success": true,
-  "projectFilePath": "D:\\EEPISAT\\GEN 5\\eepisat-gcs-cosmo-05\\GCS EEPISAT 05 (COSMO)\\GCS EEPISAT 05 (COSMO).csproj",
+  "projectFilePath": "C:\\Users\\m3g3n\\Downloads\\GCS EEPISAT 05 (COSMO)\\GCS EEPISAT 05 (COSMO)\\GCS EEPISAT 05 (COSMO)\\GCS EEPISAT 05 (COSMO).csproj",
   "expectedPackageFiles": [
     "C:\\Users\\m3g3n\\.nuget\\packages\\system.codedom\\7.0.0\\system.codedom.7.0.0.nupkg.sha512",
     "C:\\Users\\m3g3n\\.nuget\\packages\\system.management\\7.0.2\\system.management.7.0.2.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file D:\\EEPISAT\\GEN 5\\eepisat-gcs-cosmo-05\\GCS EEPISAT 05 (COSMO)\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

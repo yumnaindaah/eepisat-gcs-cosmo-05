@@ -26,6 +26,27 @@
             <Setter Property="RenderOptions.BitmapScalingMode" Value="HighQuality" />
             <Setter Property="RenderOptions.EdgeMode" Value="Aliased" />
         </Style>
+        
+        <!--ImportData-->
+        <Style x:Key="ImportBtn" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Image Grid.Column="0" Source="/Assets/import csv.png" Style="{DynamicResource IconItemHA2}"/>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#33586f"></Setter>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#33586f"></Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--Shutdown-->
         <Style x:Key="ShutdownBtn" TargetType="{x:Type Button}">
             <Setter Property="Template">
                 <Setter.Value>
@@ -72,6 +93,8 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        
+        <!--restart-->
         <Style x:Key="RestartBtn" TargetType="{x:Type Button}">
             <Setter Property="Template">
                 <Setter.Value>
@@ -118,6 +141,54 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        
+        <!--minimize-->
+        <Style x:Key="MinimizeBtn" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border  CornerRadius="50" Background="#32cd32" Width="30" Height="30" BorderThickness="{TemplateBinding BorderThickness}">
+
+                        </Border>
+                        <!--<Border
+                 Margin="10"
+                 Background="{TemplateBinding Background}"
+                 BorderThickness="{TemplateBinding BorderThickness}"
+                 CornerRadius="35">
+                     <Grid>
+                         <Grid.ColumnDefinitions>
+                             <ColumnDefinition />
+                         </Grid.ColumnDefinitions>
+                         <Image
+                         Grid.Column="0"
+                         Width="65"
+                         Height="65">
+                             <Image.Effect>
+                                 <DropShadowEffect BlurRadius="8" Opacity="0.2" />
+                             </Image.Effect>
+                             <Image.Style>
+                                 <Style TargetType="{x:Type Image}">
+                                     <Setter Property="Source" Value="/Assets/Shutdown.png" />
+                                     <Style.Triggers>
+                                         <Trigger Property="IsMouseOver" Value="True" />
+                                     </Style.Triggers>
+                                 </Style>
+                             </Image.Style>
+                         </Image>
+                     </Grid>
+                 </Border>-->
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#33586f"></Setter>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#33586f"></Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
         <!--Icon Header Tengah-->
         <Style x:Key="IconItemHT1" TargetType="Image">
@@ -127,6 +198,7 @@
             <Setter Property="RenderOptions.BitmapScalingMode" Value="HighQuality" />
             <Setter Property="RenderOptions.EdgeMode" Value="Aliased" />
         </Style>
+       
         <Style x:Key="TextAtasHT1" TargetType="TextBlock">
             <!--<Setter Property="Width" Value="50" />-->
             <Setter Property="Height" Value="20" />
@@ -149,6 +221,7 @@
             <Setter Property="FontFamily" Value="Inter"/>
             <Setter Property="FontSize" Value="25"/>
         </Style>
+        
         <!--HOME-->
         <Style x:Key="HomeMenu" TargetType="{x:Type RadioButton}">
             <Setter Property="Background" Value="Transparent" />
@@ -156,15 +229,15 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type RadioButton}">
-                        <Border Background="{TemplateBinding Background}">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="15">
                                 <Grid Margin="1,1,1,1">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="20"></ColumnDefinition>
                                         <ColumnDefinition Width="9"></ColumnDefinition>
                                         <ColumnDefinition Width="86"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
-                                    <Image Grid.Column="0" Source="/Assets/home2.png" Margin="1,5,1,5"/>
-                                    <TextBlock Grid.Column="2" Margin="0,11,14,5" Style="{DynamicResource NavItemLabel}">
+                                    <Image Grid.Column="0" Source="/Assets/home2.png" Margin="5,5,1,5"/>
+                                    <TextBlock Grid.Column="2" Margin="5,11,5,5" HorizontalAlignment="Center" Style="{DynamicResource NavItemLabel}">
                                         Home
                                     </TextBlock>
                                 </Grid>
@@ -176,6 +249,7 @@
                             </Trigger>
                             <Trigger Property="IsChecked" Value="True">
                                 <Setter Property="Background" Value="WhiteSmoke"/>
+                                <Setter Property="Foreground" Value="Black"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -183,6 +257,17 @@
             </Setter>
         </Style>
         
+        
+        <!--realtime n peak data-->
+        <Style x:Key="Textdata"  TargetType="{x:Type TextBlock}">
+            <!--<Setter Property="Width" Value="50" />-->
+            <Setter Property="Height" Value="18" />
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Regular"/>
+            <Setter Property="FontFamily" Value="Inter"/>
+            <!--<Setter Property="Margin" Value="5,0,2,10" />-->
+        </Style>
+
         <!--GRAPH-->
         <Style x:Key="GraphMenu" TargetType="{x:Type RadioButton}">
             <Setter Property="Background" Value="Transparent" />
@@ -191,15 +276,15 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type RadioButton}">
 
-                        <Border Background="{TemplateBinding Background}">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="15">
                             <Grid Margin="1,1,1,1">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="20"></ColumnDefinition>
                                     <ColumnDefinition Width="9"></ColumnDefinition>
                                     <ColumnDefinition Width="86"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <Image Grid.Column="0" Source="/Assets/Graph.png" Margin="1,5,1,5"/>
-                                <TextBlock Grid.Column="2" Margin="0,11,14,5" Style="{DynamicResource NavItemLabel}">
+                                <Image Grid.Column="0" Source="/Assets/Graph.png" Margin="5,5,1,5"/>
+                                <TextBlock Grid.Column="2" Margin="5,11,5,5" HorizontalAlignment="Center" Style="{DynamicResource NavItemLabel}">
                                  Graph
                                 </TextBlock>
                             </Grid>
@@ -211,6 +296,7 @@
                             </Trigger>
                             <Trigger Property="IsChecked" Value="True">
                                 <Setter Property="Background" Value="WhiteSmoke"/>
+                                <Setter Property="Foreground" Value="Black"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -226,15 +312,15 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type RadioButton}">
 
-                        <Border Background="{TemplateBinding Background}">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="15">
                             <Grid Margin="1,1,1,1">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="20"></ColumnDefinition>
                                     <ColumnDefinition Width="9"></ColumnDefinition>
                                     <ColumnDefinition Width="86"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <Image Grid.Column="0" Source="/Assets/Map.png" Margin="1,5,1,5"/>
-                                <TextBlock Grid.Column="2" Margin="0,11,14,5" Style="{DynamicResource NavItemLabel}">
+                                <Image Grid.Column="0" Source="/Assets/Map.png" Margin="5,5,1,5"/>
+                                <TextBlock Grid.Column="2" Margin="5,11,5,5" HorizontalAlignment="Center"  Style="{DynamicResource NavItemLabel}">
                                  Map
                                 </TextBlock>
                             </Grid>
@@ -246,6 +332,76 @@
                             </Trigger>
                             <Trigger Property="IsChecked" Value="True">
                                 <Setter Property="Background" Value="WhiteSmoke"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        <!--MAPSREET-->
+        <Style x:Key="MapStreetMenu" TargetType="{x:Type RadioButton}">
+            <Setter Property="Background" Value="Transparent" />
+            <!--<Setter Property="Margin" Value="1,1,1,1" />-->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RadioButton}">
+                        <Border Grid.Row="1" Background="{TemplateBinding Background}" Grid.Column="1" CornerRadius="15">
+                            <Image Source="/Assets/icon-street.png" Height="40"></Image>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="WhiteSmoke"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Background" Value="#D9D9D9"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--MAPSATELLITE-->
+        <Style x:Key="MapSatelliteMenu" TargetType="{x:Type RadioButton}">
+            <Setter Property="Background" Value="Transparent" />
+            <!--<Setter Property="Margin" Value="1,1,1,1" />-->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RadioButton}">
+                        <Border Grid.Row="1" Background="{TemplateBinding Background}" Grid.Column="1" CornerRadius="15">
+                            <Image Source="/Assets/icon-satelite.png" Height="40"></Image>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="WhiteSmoke"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Background" Value="#D9D9D9"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--MAPTERRAIN-->
+        <Style x:Key="MapTerrainMenu" TargetType="{x:Type RadioButton}">
+            <Setter Property="Background" Value="Transparent" />
+            <!--<Setter Property="Margin" Value="1,1,1,1" />-->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RadioButton}">
+                        <Border Grid.Row="1" Background="{TemplateBinding Background}" Grid.Column="1" CornerRadius="15">
+                            <Image Source="/Assets/icon-terrain.png" Height="40"></Image>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="WhiteSmoke"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Background" Value="#D9D9D9"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -261,15 +417,15 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type RadioButton}">
 
-                        <Border Background="{TemplateBinding Background}">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="15">
                             <Grid Margin="1,1,1,1">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="20"></ColumnDefinition>
                                     <ColumnDefinition Width="9"></ColumnDefinition>
                                     <ColumnDefinition Width="86"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <Image Grid.Column="0" Source="/Assets/Data.png" Margin="1,5,1,5"/>
-                                <TextBlock Grid.Column="2" Margin="0,11,14,5" Style="{DynamicResource NavItemLabel}">
+                                <Image Grid.Column="0" Source="/Assets/Data.png" Margin="5,5,1,5"/>
+                                <TextBlock Grid.Column="2" Margin="5,11,5,5" HorizontalAlignment="Center"  Style="{DynamicResource NavItemLabel}">
                                  Data
                                 </TextBlock>
                             </Grid>
@@ -281,6 +437,81 @@
                             </Trigger>
                             <Trigger Property="IsChecked" Value="True">
                                 <Setter Property="Background" Value="WhiteSmoke"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        <!--SIMDATA-->
+        <Style x:Key="SimData" TargetType="{x:Type RadioButton}">
+            <Setter Property="Background" Value="Transparent" />
+            <!--<Setter Property="Margin" Value="1,1,1,1" />-->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RadioButton}">
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Border Grid.Column="1" Background="{TemplateBinding Background}" CornerRadius="15,15,0,0">
+                                <!--<Image Grid.Column="0" Source="/Assets/home2.png" Margin="5,5,1,5"/>-->
+                                <TextBlock Grid.Column="2" Margin="5,5,5,5" Foreground="#292929" HorizontalAlignment="Center" VerticalAlignment="Bottom" Style="{DynamicResource NavItemLabel}">
+                                 SIMULATION DATA
+                                </TextBlock>
+                        
+                        </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="WhiteSmoke"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Background" Value="#DFDEDF"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--CANSATDATA-->
+        <Style x:Key="CanSatData" TargetType="{x:Type RadioButton}">
+            <Setter Property="Background" Value="Transparent" />
+            <!--<Setter Property="Margin" Value="1,1,1,1" />-->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RadioButton}">
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Border Grid.Column="1" Background="{TemplateBinding Background}" CornerRadius="15,15,0,0">
+                                <!--<Image Grid.Column="0" Source="/Assets/home2.png" Margin="5,5,1,5"/>-->
+                                <TextBlock Grid.Column="2" Margin="5,5,5,5" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource NavItemLabel}">
+                          CANSAT DATA
+                                </TextBlock>
+
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="WhiteSmoke"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Background" Value="#D9D9D9"/>
+                                <Setter Property="Foreground" Value="Black"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -296,15 +527,15 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type RadioButton}">
 
-                        <Border Background="{TemplateBinding Background}">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="15">
                             <Grid Margin="1,1,1,1">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="20"></ColumnDefinition>
                                     <ColumnDefinition Width="9"></ColumnDefinition>
-                                    <ColumnDefinition Width="86"></ColumnDefinition>
+                                    <ColumnDefinition Width="100"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <Image Grid.Column="0" Source="/Assets/setting.png" Margin="1,5,1,5"/>
-                                <TextBlock Grid.Column="2" Margin="0,11,0,0" Style="{DynamicResource NavItemLabel}">
+                                <Image Grid.Column="0" Source="/Assets/setting.png" Margin="5,5,1,5"/>
+                                <TextBlock Grid.Column="2" HorizontalAlignment="Center" Margin="5,11,5,5" Style="{DynamicResource NavItemLabel}">
                                  Setting
                                 </TextBlock>
                             </Grid>
@@ -316,12 +547,146 @@
                             </Trigger>
                             <Trigger Property="IsChecked" Value="True">
                                 <Setter Property="Background" Value="WhiteSmoke"/>
+                                <Setter Property="Foreground" Value="Black"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <!--ConnectedPORT-->
+        <Style x:Key="ConnectPortBtn" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Grid.Column="3" CornerRadius="10" Background="#FAFAFA" Height="60" Width="60" HorizontalAlignment="Right" VerticalAlignment="Center">
+                            <Border.Effect>
+                                <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
+                            </Border.Effect>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Image
+                        Grid.Column="0"
+                        Width="40"
+                        Height="40">
+                                    <Image.Style>
+                                        <Style TargetType="{x:Type Image}">
+                                            <Setter Property="Source" Value="/Assets/disconnected1.png" />
+                                            <Setter Property="RenderOptions.BitmapScalingMode" Value="HighQuality" />
+                                            <Setter Property="RenderOptions.EdgeMode" Value="Aliased" />
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True" />
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Image.Style>
+                                </Image>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#33586f" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#558bac" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--DisconnectedPORT-->
+        <Style x:Key="DisconnectPortBtn" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Grid.Column="3" CornerRadius="10" Background="#FAFAFA" Height="60" Width="60" HorizontalAlignment="Right" VerticalAlignment="Center">
+                            <Border.Effect>
+                                <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
+                            </Border.Effect>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" Width="50" Height="50">
+                                    <Image.Style>
+                                        <Style TargetType="{x:Type Image}">
+                                            <Setter Property="Source" Value="/Assets/connected1.png" />
+                                            <Setter Property="RenderOptions.BitmapScalingMode" Value="HighQuality" />
+                                            <Setter Property="RenderOptions.EdgeMode" Value="Aliased" />
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True" />
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Image.Style>
+                                </Image>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#33586f" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#558bac" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--RestartPORT-->
+        <Style x:Key="RestartPortBtn" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Grid.Column="3" CornerRadius="10" Background="#FAFAFA" Height="60" Width="60" HorizontalAlignment="Right" VerticalAlignment="Center">
+                            <Border.Effect>
+                                <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
+                            </Border.Effect>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" Width="35" Height="35">
+                                    <Image.Style>
+                                        <Style TargetType="{x:Type Image}">
+                                            <Setter Property="Source" Value="/Assets/refresh.png" />
+                                            <Setter Property="RenderOptions.BitmapScalingMode" Value="HighQuality" />
+                                            <Setter Property="RenderOptions.EdgeMode" Value="Aliased" />
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True" />
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Image.Style>
+                                </Image>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#33586f" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#558bac" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
         <!--sponsor-->
         <Style x:Key="sponsor" TargetType="Image">
             <Setter Property="Width" Value="190" />
@@ -339,6 +704,7 @@
             <Setter Property="RenderOptions.BitmapScalingMode" Value="HighQuality" />
             <Setter Property="RenderOptions.EdgeMode" Value="Aliased" />
         </Style>
+        
         <Style x:Key="TextAtasFooter" TargetType="TextBlock">
             <!--<Setter Property="Width" Value="50" />-->
             <Setter Property="Height" Value="25" />
@@ -347,7 +713,8 @@
             <Setter Property="FontFamily" Value="Inter"/>
             <Setter Property="Margin" Value="5,10,0,0" />
         </Style>
-        <Style x:Key="TextBawahFooter" TargetType="Label">
+
+        <Style x:Key="TextBawahFooter" TargetType="TextBlock">
             <!--<Setter Property="Width" Value="50" />-->
             <Setter Property="Height" Value="25" />
             <Setter Property="FontSize" Value="15"/>

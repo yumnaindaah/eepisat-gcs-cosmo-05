@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\EEPISAT\\GEN 5\\eepisat-gcs-cosmo-05\\GCS EEPISAT 05 (COSMO)\\GCS EEPISAT 05 (COSMO).csproj": {}
+    "C:\\Users\\m3g3n\\Downloads\\GCS EEPISAT 05 (COSMO)\\GCS EEPISAT 05 (COSMO)\\GCS EEPISAT 05 (COSMO)\\GCS EEPISAT 05 (COSMO).csproj": {}
   },
   "projects": {
-    "D:\\EEPISAT\\GEN 5\\eepisat-gcs-cosmo-05\\GCS EEPISAT 05 (COSMO)\\GCS EEPISAT 05 (COSMO).csproj": {
+    "C:\\Users\\m3g3n\\Downloads\\GCS EEPISAT 05 (COSMO)\\GCS EEPISAT 05 (COSMO)\\GCS EEPISAT 05 (COSMO)\\GCS EEPISAT 05 (COSMO).csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\EEPISAT\\GEN 5\\eepisat-gcs-cosmo-05\\GCS EEPISAT 05 (COSMO)\\GCS EEPISAT 05 (COSMO).csproj",
+        "projectUniqueName": "C:\\Users\\m3g3n\\Downloads\\GCS EEPISAT 05 (COSMO)\\GCS EEPISAT 05 (COSMO)\\GCS EEPISAT 05 (COSMO)\\GCS EEPISAT 05 (COSMO).csproj",
         "projectName": "GCS EEPISAT 05 (COSMO)",
-        "projectPath": "D:\\EEPISAT\\GEN 5\\eepisat-gcs-cosmo-05\\GCS EEPISAT 05 (COSMO)\\GCS EEPISAT 05 (COSMO).csproj",
+        "projectPath": "C:\\Users\\m3g3n\\Downloads\\GCS EEPISAT 05 (COSMO)\\GCS EEPISAT 05 (COSMO)\\GCS EEPISAT 05 (COSMO)\\GCS EEPISAT 05 (COSMO).csproj",
         "packagesPath": "C:\\Users\\m3g3n\\.nuget\\packages\\",
-        "outputPath": "D:\\EEPISAT\\GEN 5\\eepisat-gcs-cosmo-05\\GCS EEPISAT 05 (COSMO)\\obj\\",
+        "outputPath": "C:\\Users\\m3g3n\\Downloads\\GCS EEPISAT 05 (COSMO)\\GCS EEPISAT 05 (COSMO)\\GCS EEPISAT 05 (COSMO)\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

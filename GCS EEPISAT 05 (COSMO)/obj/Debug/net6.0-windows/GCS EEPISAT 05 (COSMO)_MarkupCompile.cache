@@ -18,6 +18,7 @@ D:\EEPISAT\GEN 5\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\App.xaml
 11407045341
 51-438281664
 3-1233169557
+<<<<<<< HEAD
 195-938103312
 =======
 G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\App.xaml
@@ -26,7 +27,10 @@ G:\EEPISAT\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\App.xaml
 3-1233169557
 195-594137026
 >>>>>>> 990f0affb2a980764a6809b01eba185af5c11923
+=======
+203160702342
+>>>>>>> 0283ec7 (:feat: update some ui and program logic)
 MainWindow.xaml;
 assets\eepisat-splashscreen.png
-False
+True
 
