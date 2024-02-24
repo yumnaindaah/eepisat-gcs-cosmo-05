@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = GCS_EEPISAT_05__COSMO_
-build_property.ProjectDir = D:\PENS!\BAMANTARA EEPISAT\G-05\GCS\GCS EEPISAT 05 (COSMO)\GCS EEPISAT 05 (COSMO)\
+build_property.ProjectDir = D:\EEPISAT\GEN 5\eepisat-gcs-cosmo-05\GCS EEPISAT 05 (COSMO)\

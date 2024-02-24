@@ -477,11 +477,11 @@
         <!--ELEMEN-->
         <Border Grid.Row="2" CornerRadius="0" Background="Transparent" Margin="0,55,0,65" Grid.RowSpan="4">
             <TabControl x:Name="MainPage" Background="Transparent" BorderBrush="Transparent" ScrollViewer.CanContentScroll="True" SelectionChanged="MainPage_SelectionChanged">
-                <TabControl.ItemContainerStyle>
+                <!--<TabControl.ItemContainerStyle>
                     <Style TargetType="{x:Type TabItem}">
                         <Setter Property="Visibility" Value="Collapsed"/>
                     </Style>
-                </TabControl.ItemContainerStyle>
+                </TabControl.ItemContainerStyle>-->
                 <!--BHOME-->
                 <TabItem>
                     <Grid>
