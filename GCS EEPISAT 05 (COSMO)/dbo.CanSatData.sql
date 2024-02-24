@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[CanSatData]
+(
+	[Id]			INT				NOT NULL, 
+    [TeamID]		NCHAR(10)		NULL, 
+    [MissionTime]	TIME			NULL, 
+    [PacketCount]	INT				NULL, 
+    [Mode]			NCHAR(10)		NULL, 
+    [State]			VARCHAR(128)	NULL, 
+    [Altitude]		FLOAT			NULL,
+    [Air_Speed]		FLOAT			NULL, 
+    [HS_Deployed]	NCHAR(10)		NULL, 
+    [PC_Deployed]	NCHAR(10)		NULL, 
+    [Temperature]	FLOAT			NULL, 
+    [Voltage]		FLOAT			NULL, 
+    [GPS_Time]		TIME			NULL, 
+    [GPS_Altitude]	FLOAT			NULL, 
+    [GPS_Latitude]	FLOAT			NULL, 
+    [GPS_Longitude] FLOAT			NULL, 
+    [GPS_Sats]		INT				NULL, 
+    [Tilt_X]		FLOAT			NULL, 
+    [Tilt_Y]		FLOAT			NULL, 
+    [Rot_Z]		    FLOAT			NULL, 
+    [CMD_Echo]		VARCHAR(128)	NULL,
+	PRIMARY KEY CLUSTERED ([Id] ASC)
+)

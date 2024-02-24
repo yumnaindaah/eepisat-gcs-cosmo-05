@@ -48,15 +48,7 @@ namespace GCS_EEPISAT_05__COSMO_ {
         /// InitializeComponent
         /// </summary>
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-<<<<<<< HEAD
-<<<<<<< HEAD
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "7.0.5.0")]
-=======
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "6.0.9.0")]
->>>>>>> 990f0affb2a980764a6809b01eba185af5c11923
-=======
         [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "8.0.0.0")]
->>>>>>> 0283ec7 (:feat: update some ui and program logic)
         public void InitializeComponent() {
             if (_contentLoaded) {
                 return;
@@ -82,15 +74,7 @@ namespace GCS_EEPISAT_05__COSMO_ {
         /// </summary>
         [System.STAThreadAttribute()]
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-<<<<<<< HEAD
-<<<<<<< HEAD
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "7.0.5.0")]
-=======
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "6.0.9.0")]
->>>>>>> 990f0affb2a980764a6809b01eba185af5c11923
-=======
         [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "8.0.0.0")]
->>>>>>> 0283ec7 (:feat: update some ui and program logic)
         public static void Main() {
             SplashScreen splashScreen = new SplashScreen("assets/eepisat-splashscreen.png");
             splashScreen.Show(true);
