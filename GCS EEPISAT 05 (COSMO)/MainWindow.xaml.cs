@@ -40,13 +40,6 @@ using GMap.NET.ObjectModel;
 using GMap.NET.WindowsForms.ToolTips;
 
 
-
-//emoji
-using Emoji;
-using System.Numerics;
-using System.Windows.Media.Animation;
-using System.Runtime.ConstrainedExecution;
-using Windows.UI.Xaml;
 //using Windows.UI.Xaml.Controls;
 using GMap.NET.WindowsPresentation;
 using System.Windows.Media.Media3D;
@@ -55,6 +48,11 @@ using ScottPlot.Drawing.Colormaps;
 using Microsoft.Win32;
 using ScottPlot.Plottable;
 using System.Reflection;
+using System.Data.Entity.Infrastructure;
+
+
+//3D
+using HelixToolkit.Wpf;
 
 
 namespace GCS_EEPISAT_05__COSMO_
@@ -84,7 +82,7 @@ namespace GCS_EEPISAT_05__COSMO_
         StreamWriter writeCan;
         string cansatFileLog = "";
 
-                                                                
+
         // bin App path
         readonly string binAppPath = System.AppDomain.CurrentDomain.BaseDirectory;
 
@@ -184,15 +182,15 @@ namespace GCS_EEPISAT_05__COSMO_
         readonly System.Windows.Threading.DispatcherTimer timerGen3d = new();
 
         string fileobj;
-        //string fileobj2;
-        //string fileobj3;
-        
+        string fileobj2;
+        string fileobj3;
+
 
         Model3DGroup modelMain;
         Model3DGroup model1;
         Model3DGroup model2;
         Model3DGroup model3;
-        
+
 
         readonly private GeoCoordinateWatcher watcher;
         double distance = 0;
@@ -202,24 +200,36 @@ namespace GCS_EEPISAT_05__COSMO_
 
         // Serial COM PORT
         ManagementEventWatcher detector;
-        string SerialPortNumber="";
-        string SerialPortName="";
-        string SerialPortBaudrate="";
-        
-        
+        string SerialPortNumber = "";
+        string SerialPortName = "";
+        string SerialPortBaudrate = "";
+
+
         readonly System.Windows.Threading.DispatcherTimer timer = new();
 
-        readonly double[] GPSSats = new double[100_000];
-        readonly double[] Long = new double[100_000];
-        readonly double[] Lat = new double[100_000];
-        readonly double[] TiltX = new double[100_000];
-        readonly double[] TiltY = new double[100_000];
-        readonly double[] Pressure = new double[100_000];
-        readonly double[] Temperature = new double[100_000];
-        readonly double[] Voltage = new double[100_000];
-        readonly double[] CanSatAlt = new double[100_000];
-        readonly double[] GPSAlt = new double[100_000];
-        readonly double[] AirSpeed = new double[100_000];
+        //readonly double[] GPSSats = new double[100_000];
+        //readonly double[] Long = new double[100_000];
+        //readonly double[] Lat = new double[100_000];
+        //readonly double[] TiltX = new double[100_000];
+        //readonly double[] TiltY = new double[100_000];
+        //readonly double[] Pressure = new double[100_000];
+        //readonly double[] Temperature = new double[100_000];
+        //readonly double[] Voltage = new double[100_000];
+        //readonly double[] CanSatAlt = new double[100_000];
+        //readonly double[] GPSAlt = new double[100_000];
+        //readonly double[] AirSpeed = new double[100_000];
+
+        readonly double[] GPSSats = { 5, 6, 5, 12, 2 };
+        readonly double[] Long = { 10.0, 10.2, 8.0, 0.7 };
+        readonly double[] Lat = { 10.0, 10.2, 8.0, 0.7 };
+        readonly double[] TiltX = { 10.0, 10.2, 8.0, 0.7 };
+        readonly double[] TiltY = { 10.0, 10.2, 8.0, 0.7 };
+        readonly double[] Pressure = { 10.0, 10.2, 8.0, 0.7 };
+        readonly double[] Temperature = { 10.0, 10.2, 8.0, 0.7 };
+        readonly double[] Voltage = { 10.0, 10.2, 8.0, 0.7 };
+        readonly double[] CanSatAlt = { 10.0, 10.2, 8.0, 0.7 };
+        readonly double[] GPSAlt = { 10.0, 10.2, 8.0, 0.7 };
+        readonly double[] AirSpeed = { 10.0, 10.2, 8.0, 0.7 };
 
         readonly ScottPlot.Plottable.SignalPlot SignalPlot;
         readonly ScottPlot.Plottable.SignalPlot SignalPlot2;
@@ -232,19 +242,16 @@ namespace GCS_EEPISAT_05__COSMO_
         readonly ScottPlot.Plottable.SignalPlot SignalPlot9;
         int NextPointIndex = 0;
 
-        SolidColorBrush kuning = (SolidColorBrush)new BrushConverter().ConvertFromString("#FFC12F"); 
-        SolidColorBrush merah = (SolidColorBrush) new BrushConverter().ConvertFromString("#FF6157");
+        SolidColorBrush kuning = (SolidColorBrush)new BrushConverter().ConvertFromString("#FFC12F");
+        SolidColorBrush merah = (SolidColorBrush)new BrushConverter().ConvertFromString("#FF6157");
         SolidColorBrush merahdark = (SolidColorBrush)new BrushConverter().ConvertFromString("#B22222");
 
 
-        public MainWindow()                                                                                       
+        public MainWindow()
         {
 
             InitializeComponent();
-            GetBatteryPercent();
-            GetPerformanceIndicator();
             Loaded += WindowLoaded;
-            CanDataLog();
 
 
             //SoundPlayer player = new(binAppPath + "/Audio/GCSSTART.wav");
@@ -276,7 +283,20 @@ namespace GCS_EEPISAT_05__COSMO_
             {
                 Directory.CreateDirectory(binAppPath + "\\LogData\\SIMULATION");
             }
-         
+
+            // 3D
+
+            fileobj = System.AppDomain.CurrentDomain.BaseDirectory + "/Assets/3D/CanSat Inside Rocket/Assembly_3D GCS.obj";
+            fileobj2 = System.AppDomain.CurrentDomain.BaseDirectory + "/Assets/3D/CanSat Parachute Deploy/Assembly_3D GCS.obj";
+            fileobj3 = System.AppDomain.CurrentDomain.BaseDirectory + "/Assets/3D/CanSat Separated/Assembly_3D GCS.obj";
+            ModelImporter import = new();
+            this.Dispatcher.Invoke(() =>
+            {
+                model1 = import.Load(fileobj);
+                model2 = import.Load(fileobj2);
+                model3 = import.Load(fileobj3);
+            });
+
             PressurePlot.Refresh();
             AltitudePlot.Refresh();
             VoltagePlot.Refresh();
@@ -285,10 +305,10 @@ namespace GCS_EEPISAT_05__COSMO_
             SatellitCountPlot.Refresh();
             AirSpeedPlot.Refresh();
             LatLongPlot.Refresh();
-            
+
 
             // setup graph
-           
+
             PressurePlot.Plot.Style(ScottPlot.Style.Light1);
             AltitudePlot.Plot.Style(ScottPlot.Style.Light1);
             VoltagePlot.Plot.Style(ScottPlot.Style.Light1);
@@ -297,28 +317,28 @@ namespace GCS_EEPISAT_05__COSMO_
             SatellitCountPlot.Plot.Style(ScottPlot.Style.Light1);
             AirSpeedPlot.Plot.Style(ScottPlot.Style.Light1);
             LatLongPlot.Plot.Style(ScottPlot.Style.Light1);
-            
+
 
             SignalPlot = SatellitCountPlot.Plot.AddSignal(GPSSats, color: System.Drawing.Color.FromArgb(255, 222, 158, 93), label: "GPS Sats");
             SatellitCountPlot.Plot.Legend();
-            SatellitCountPlot.Plot.SetAxisLimits(0, 1, -13, 30);
+            SatellitCountPlot.Plot.SetAxisLimits(0, 5, -13, 30);
 
             SignalPlot2 = PressurePlot.Plot.AddSignal(Pressure, color: System.Drawing.Color.FromArgb(255, 222, 158, 93), label: "Pressure");
             PressurePlot.Plot.Legend();
-            PressurePlot.Plot.SetAxisLimits(0, 1, -15, 130);
+            PressurePlot.Plot.SetAxisLimits(0, 5, -15, 130);
 
             SignalPlot3 = TemperaturePlot.Plot.AddSignal(Temperature, color: System.Drawing.Color.FromArgb(255, 222, 158, 93), label: "Temperature");
             TemperaturePlot.Plot.Legend();
-            TemperaturePlot.Plot.SetAxisLimits(0, 1, -30, 90);
+            TemperaturePlot.Plot.SetAxisLimits(0, 5, -30, 90);
 
             SignalPlot4 = VoltagePlot.Plot.AddSignal(Voltage, color: System.Drawing.Color.FromArgb(255, 222, 158, 93), label: "Voltage");
             VoltagePlot.Plot.Legend();
-            VoltagePlot.Plot.SetAxisLimits(0, 1, -10, 10);
+            VoltagePlot.Plot.SetAxisLimits(0, 5, -10, 10);
 
             SignalPlot5 = TiltPlot.Plot.AddSignal(TiltX, label: "Tilt X");
             SignalPlot7 = TiltPlot.Plot.AddSignal(TiltY, label: "Tilt Y");
             TiltPlot.Plot.Legend();
-            TiltPlot.Plot.SetAxisLimits(0, 1, -200, 200);
+            TiltPlot.Plot.SetAxisLimits(0, 5, -200, 200);
 
             LatLongPlot.Plot.AddScatter(Lat, Long, color: System.Drawing.Color.FromArgb(255, 222, 158, 93), markerSize: 0, label: "Lat & Long");
             //LatLongPlot.Plot.AddSignal(Lat, label: "Latitude");
@@ -329,14 +349,58 @@ namespace GCS_EEPISAT_05__COSMO_
             SignalPlot6 = AltitudePlot.Plot.AddSignal(CanSatAlt, color: System.Drawing.Color.FromArgb(255, 222, 158, 93), label: "CanSat");
             SignalPlot8 = AltitudePlot.Plot.AddSignal(GPSAlt, color: System.Drawing.Color.FromArgb(255, 106, 128, 184), label: "GPS");
             AltitudePlot.Plot.Legend();
-            AltitudePlot.Plot.SetAxisLimits(0, 1, -300, 1500);
+            AltitudePlot.Plot.SetAxisLimits(0, 5, -300, 1500);
 
             SignalPlot9 = AirSpeedPlot.Plot.AddSignal(Pressure, color: System.Drawing.Color.FromArgb(255, 222, 158, 93), label: "Air Speed");
             AirSpeedPlot.Plot.Legend();
-            AirSpeedPlot.Plot.SetAxisLimits(0, 1, -15, 50);
+            AirSpeedPlot.Plot.SetAxisLimits(0, 5, -15, 50);
 
             timergraph.Interval = new TimeSpan(0, 0, 1);
             timergraph.Tick += new EventHandler(TimerGraph_Tick);
+
+
+            // dummy graph
+            double currentRightEdge = SatellitCountPlot.Plot.GetAxisLimits().XMax;
+
+            if (6 > currentRightEdge)
+            {
+                SatellitCountPlot.Plot.SetAxisLimits(xMax: currentRightEdge + 1);
+                PressurePlot.Plot.SetAxisLimits(xMax: currentRightEdge + 1);
+                VoltagePlot.Plot.SetAxisLimits(xMax: currentRightEdge + 1);
+                TemperaturePlot.Plot.SetAxisLimits(xMax: currentRightEdge + 1);
+                TiltPlot.Plot.SetAxisLimits(xMax: currentRightEdge + 1);
+                AltitudePlot.Plot.SetAxisLimits(xMax: currentRightEdge + 1);
+                AirSpeedPlot.Plot.SetAxisLimits(xMax: currentRightEdge + 1);
+                if (6 != 0 && 5 % 10 == 0)
+                {
+                    SatellitCountPlot.Plot.SetAxisLimits(xMin: 6 - 10);
+                    PressurePlot.Plot.SetAxisLimits(xMin: 6 - 10);
+                    VoltagePlot.Plot.SetAxisLimits(xMin: 6 - 10);
+                    TemperaturePlot.Plot.SetAxisLimits(xMin: 6 - 10);
+                    TiltPlot.Plot.SetAxisLimits(xMin: 6 - 10);
+                    AltitudePlot.Plot.SetAxisLimits(xMin: 6 - 10);
+                }
+            }
+
+            SatellitCountPlot.Render();
+            PressurePlot.Render();
+            VoltagePlot.Render();
+            TemperaturePlot.Render();
+            TiltPlot.Render();
+            AltitudePlot.Render();
+            LatLongPlot.Render();
+
+
+            // live time update
+            System.Windows.Threading.DispatcherTimer LiveTime = new System.Windows.Threading.DispatcherTimer();
+            LiveTime.Interval = TimeSpan.FromSeconds(1);
+            LiveTime.Tick += timer_Tick;
+            LiveTime.Start();
+        }
+
+        void timer_Tick(object sender, EventArgs e)
+        {
+            GCSTimeLabel.Text = DateTime.Now.ToString("HH:mm:ss");
         }
 
         private void TimerGraph_Tick(object sender, EventArgs e)
@@ -347,8 +411,8 @@ namespace GCS_EEPISAT_05__COSMO_
             //  missionTimeOld = null;
             //}
 
-            TimerSatOne_Tick(sender, e);
-            TimerSatTwo_Tick(sender, e);
+            //TimerSatOne_Tick(sender, e);
+            //TimerSatTwo_Tick(sender, e);
         }
 
         private void TimerSatOne_Tick(object sender, EventArgs e)
@@ -373,13 +437,13 @@ namespace GCS_EEPISAT_05__COSMO_
                 GPSAlt[NextPointIndex] = 0;
                 Voltage[NextPointIndex] = 0;
                 TiltX[NextPointIndex] = 0;
-                TiltY[NextPointIndex] = 0;        
+                TiltY[NextPointIndex] = 0;
                 Temperature[NextPointIndex] = 0;
                 GPSSats[NextPointIndex] = 0;
                 AirSpeed[NextPointIndex] = 0;
                 Lat[NextPointIndex] = 0;
                 Long[NextPointIndex] = 0;
-               
+
             }
 
             SignalPlot.MaxRenderIndex = NextPointIndex;
@@ -435,19 +499,19 @@ namespace GCS_EEPISAT_05__COSMO_
 
 
         private void HomeNavClick(object sender, System.Windows.RoutedEventArgs e)
-            {
-                MainPage.SelectedIndex = 0;
-            }
+        {
+            MainPage.SelectedIndex = 0;
+        }
 
         private void GraphNavClick(object sender, System.Windows.RoutedEventArgs e)
-            {
-                MainPage.SelectedIndex = 1;
-            }
+        {
+            MainPage.SelectedIndex = 1;
+        }
 
         private void MapNavClick(object sender, System.Windows.RoutedEventArgs e)
-            {
-                MainPage.SelectedIndex = 2;
-            }
+        {
+            MainPage.SelectedIndex = 2;
+        }
 
         public void USBChangedEvent(object sender, EventArrivedEventArgs e)
         {
@@ -490,7 +554,7 @@ namespace GCS_EEPISAT_05__COSMO_
             {
                 this.dataSensor = _serialPort.ReadLine();
                 this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new uiupdater(VerifyData));
-                Debug.WriteLine("Test " + _serialPort.ReadExisting());
+                // Debug.WriteLine("Test " + _serialPort.ReadExisting());
             }
 
             catch (NullReferenceException)
@@ -520,7 +584,7 @@ namespace GCS_EEPISAT_05__COSMO_
             {
                 string.Concat(" \0" +dataSensor, "\t------------#END OF PACKET DATA------------\n")
             });
-            Debug.WriteLine("{0}", dataSensor);
+            // Debug.WriteLine("{0}", dataSensor);
             SerialControlTextBox.SelectionLength = SerialControlTextBox.Text.Length;
             SerialControlTextBox.ScrollToEnd();
             CMDTextBox1.IsReadOnly = false;
@@ -529,6 +593,7 @@ namespace GCS_EEPISAT_05__COSMO_
             CMDTextBox2.SelectionLength = CMDTextBox2.Text.Length;
             CMDTextBox2.ScrollToEnd();
             dataSum++;
+            Debug.WriteLine("Masuk Cak 1");
 
             if (dataSum == 50)
             {
@@ -536,23 +601,28 @@ namespace GCS_EEPISAT_05__COSMO_
                 dataSum = 0;
             }
             isAscii = Regex.IsMatch(dataSensor, @"[^\u0021-\u007E]", RegexOptions.None);
+            Debug.WriteLine("Masuk Cak 2 " + isAscii + dataSensor);
 
-            if (isAscii == false)
+            if (isAscii)
             {
+                Debug.WriteLine("Masuk Cak 3");
+
                 try
                 {
                     splitData = dataSensor.Split((char)44); // (char)44 = ','
-
+                    Debug.WriteLine(splitData.Length);
                     //System.Diagnostics.Debug.WriteLine("VerifyData : Receiver Checksum " + recCheckSum);
                     //Pengecekan 
-                    //  Panjang Data               Team ID                  Team ID Testing             Team ID                     Mission Time                Packet Count         
-                    if ((splitData.Length == 20 || splitData.Length == 21 || splitData.Length == 22 || splitData.Length == 23) && (splitData[0] == "2032" || splitData[0] == "1000") && splitData[0].Length == 4 && splitData[1].Length == 11 && splitData[2].Length <= 4)
+                    //  Panjang Data               Team ID                  Team ID Testing                                         Team ID                                                                         Mission Time                Packet Count         
+                    if ((splitData.Length == 20 || splitData.Length == 21 || splitData.Length == 22 || splitData.Length == 23 || splitData.Length == 24) && (splitData[0] == "2032" || splitData[0] == "1000") && splitData[0].Length == 4 && splitData[1].Length == 8 && splitData[2].Length <= 4)
                     {
+                        Debug.WriteLine("Masuk Cak 4");
+
                         try
                         {
                             CheckTelemetryData();
-                            CanDataLog();
-                            WriteLogPayload();
+                            // CanDataLog();
+                            // WriteLogPayload();
                             GC.Collect();
                         }
                         catch (Exception ex)
@@ -588,7 +658,7 @@ namespace GCS_EEPISAT_05__COSMO_
         {
             ushort buff = 0;
             byte hasil, buffhasil;
-            for (int i = 0; i < 150; i++)
+            for (int i = 0; i < 175; i++)
             {
                 buff += data_[i];
                 if (data_[i] == '\0' || i > length - 2) break;
@@ -602,28 +672,45 @@ namespace GCS_EEPISAT_05__COSMO_
 
         private void CheckTelemetryData()
         {
+            Debug.WriteLine("Masuk Cak 5");
             try
             {
-                if (splitData.Length == 20 || splitData.Length == 21 || splitData.Length == 22 || splitData.Length == 23)
+                if (splitData.Length == 20 || splitData.Length == 21 || splitData.Length == 22 || splitData.Length == 23 || splitData.Length == 24)
                 {
-                    System.Diagnostics.Debug.WriteLine("Error - Masuk " + splitData[23]);
-                    totalCanSatData++;
-                    int checkSum = Int32.Parse(splitData[23]);
-                    splitData[23] = null;
-                    string checkString = String.Join(",", splitData);
-                    char[] dataSensorChar = checkString.ToCharArray();
-                    byte hasil = CheckHasil(dataSensorChar, (byte)checkSum, (byte)dataSensorChar.Length);
-                    if (hasil == 255)
+                    Debug.WriteLine("Masuk Cak 6");
+
+                    // checksum avail or not 
+                    if (splitData.Length == 23 || splitData.Length == 24)
                     {
-                        validCount++;
-                        checkSumHasil = true;
-                    }
-                    else
-                    {
-                        corruptCount++;
-                        checkSumHasil = false;
+                        System.Diagnostics.Debug.WriteLine("CheckSum - CanSat " + splitData[23]);
+
+                        totalCanSatData++;
+                        int checkSum = Int32.Parse(splitData[23]);
+                        // Find the last comma position
+                        int lastCommaPosition = dataSensor.LastIndexOf(',');
+
+                        // Trim the string after the last comma
+                        string result = dataSensor.Substring(0, lastCommaPosition + 1);
+                        System.Diagnostics.Debug.WriteLine("Split Data - GCS " + result);
+
+                        string checkString = result;
+                        char[] dataSensorChar = checkString.ToCharArray();
+                        byte hasil = CheckHasil(dataSensorChar, (byte)checkSum, (byte)dataSensorChar.Length);
+                        System.Diagnostics.Debug.WriteLine("CheckSum - GCS " + hasil);
+
+                        if (hasil == 255)
+                        {
+                            validCount++;
+                            checkSumHasil = true;
+                        }
+                        else
+                        {
+                            corruptCount++;
+                            checkSumHasil = false;
+                        }
                     }
 
+                    Debug.WriteLine("Masuk Cak 7");
 
                     if (splitData[0].Length > 0 && splitData[0].All(c => Char.IsNumber(c)))
                     {
@@ -722,7 +809,9 @@ namespace GCS_EEPISAT_05__COSMO_
                     tilt_x = Convert.ToSingle(splitData[17]);
                     tilt_y = Convert.ToSingle(splitData[18]);
                     rot_z = Convert.ToSingle(splitData[19]);
-                    heading = Convert.ToSingle(splitData[21]);
+
+                    heading = Convert.ToSingle(splitData[22]);
+
                     missionTime = splitData[1];
                     mode = splitData[3].ToCharArray()[0];
                     state = splitData[4];
@@ -787,17 +876,17 @@ namespace GCS_EEPISAT_05__COSMO_
                 {
                     timergraph.Start();
                 }
-                //this.Dispatcher.BeginInvoke(new uiupdater(ShowTelemetryData));
-                //if (model.Content != null)
-                //{
-                //    Debug.WriteLine("Get Rotated");
-                //    this.Dispatcher.Invoke(() =>
-                //    {
-                //        RotateBackModel();
-                //    });
-                //}
+                this.Dispatcher.BeginInvoke(new uiupdater(ShowTelemetryData));
+                if (model.Content != null) //3D
+                {
+                    Debug.WriteLine("Get Rotated");
+                    this.Dispatcher.Invoke(() =>
+                    {
+                        RotateBackModel();
+                    });
+                }
                 //graphOnline = true;
-                //this.Dispatcher.BeginInvoke(new uiupdater(GmapView_Region));
+                this.Dispatcher.BeginInvoke(new uiupdater(GmapView_Region));
             }
             catch (NullReferenceException)
             {
@@ -817,8 +906,19 @@ namespace GCS_EEPISAT_05__COSMO_
             }
         }
 
+        private void RotateBackModel()
+        {
+            model.Content.Transform = new MatrixTransform3D(Matrix3D.Identity);
+            //Matrix3D matrix = model.Content.Transform.Value;
+            //axis = axis*-1;
+
+            //matrix.Rotate(new System.Windows.Media.Media3D.Quaternion(axis, 0));
+            //model.Content.Transform = new MatrixTransform3D(matrix);
+        }
+
         internal void ShowTelemetryData()
         {
+            Debug.WriteLine("Tampilkan data telemetry");
             MissionTimeLabel.Text = String.Format("{00:00:00}", missionTime);
             SoftwareStateLabel.Text = String.Format("{0}", state);
 
@@ -836,30 +936,30 @@ namespace GCS_EEPISAT_05__COSMO_
             }
 
 
-            //if (hs_status == 'P' && !hs_deployed)
-            //{
-            //    this.Dispatcher.Invoke(() =>
-            //    {
-            //        modelCamera.FieldOfView = 35;
-            //        modelCamera.Position = new Point3D(0.000, 100.000, 1800.000);
-            //        HelixViewport3D_Load();
-            //    });
-            //    hs_deployed = true;
-            //    pc_deployed = false;
+            if (hs_status == 'P' && !hs_deployed)
+            {
+                this.Dispatcher.Invoke(() =>
+                {
+                    modelCamera.FieldOfView = 35;
+                    modelCamera.Position = new Point3D(0.000, 100.000, 1800.000);
+                    HelixViewport3D_Load();
+                });
+                hs_deployed = true;
+                pc_deployed = false;
 
-            //}
-            //if (pc_status == 'C' && !pc_deployed)
-            //{
-            //    this.Dispatcher.Invoke(() =>
-            //    {
-            //        modelCamera.FieldOfView = 60;
-            //        modelCamera.Position = new Point3D(0.000, 340.000, 1800.000);
-            //        HelixViewport3D_Load();
-            //    });
-            //    pc_deployed = true;
+            }
+            if (pc_status == 'C' && !pc_deployed)
+            {
+                this.Dispatcher.Invoke(() =>
+                {
+                    modelCamera.FieldOfView = 60;
+                    modelCamera.Position = new Point3D(0.000, 340.000, 1800.000);
+                    HelixViewport3D_Load();
+                });
+                pc_deployed = true;
 
-            //    hs_deployed = false;
-            //}
+                hs_deployed = false;
+            }
 
 
 
@@ -890,15 +990,15 @@ namespace GCS_EEPISAT_05__COSMO_
             System.Windows.Media.Media3D.Quaternion rotation = new System.Windows.Media.Media3D.Quaternion(axis, angle);
 
             // Get the current transformation matrix from the model
-            //Matrix3D matrix = model.Content.Transform.Value;
+            Matrix3D matrix = model.Content.Transform.Value;
 
             // Apply the rotation to the existing matrix
-            //matrix.Rotate(rotation);
+            matrix.Rotate(rotation);
 
             // Set the updated transformation matrix back to the model
             this.Dispatcher.Invoke(() =>
             {
-                //model.Content.Transform = new MatrixTransform3D(matrix);
+                model.Content.Transform = new MatrixTransform3D(matrix);
             });
 
             //#endregion
@@ -931,7 +1031,7 @@ namespace GCS_EEPISAT_05__COSMO_
                 //    #region Dashboard Item
 
                 // GPS
-                GPSTimeLabel.Text = String.Format("{00:00:00}", gps_time);
+                //GPSTimeLabel.Text = String.Format("{00:00:00}", gps_time);
                 GPSCountLabel.Text = String.Format("{0:00}", gps_sats_count);
                 GPSLongitudeLabel.Text = String.Format("{0:0.0000}", gps_longitude);
                 GPSLatitudeLabel.Text = String.Format("{0:0.0000}", gps_latitude);
@@ -944,9 +1044,9 @@ namespace GCS_EEPISAT_05__COSMO_
                 MaxTemperatureLabel.Text = String.Format("{0:0.0}", max_max_temperature);
                 MaxPressureLabel.Text = String.Format("{0:0.0}", min_min_pressure);
                 MaxPacketCountLabel.Text = String.Format("{0:0000}", max_max_packetCount);
-                PacketCountLabel.Text = String.Format("{0:0000}", packetCount);
+                PacketCountLabel.Text = String.Format("{0:0000}", totalCanSatData);
                 AltitudeLabel.Text = String.Format("{0:0.0}", altitude);
-                AirSpeedLabel.Text = String.Format("{0:0.0}", air_speed);
+                AirSpeedLabel.Text = String.Format("{0:0.0}", air_speed) + "m/s";
                 TemperatureLabel.Text = String.Format("{0:0.0}", temperature);
                 VoltageLabel.Text = String.Format("{0:0.0}", voltage);
                 PressureLabel.Text = String.Format("{0:0.0}", pressure);
@@ -957,29 +1057,32 @@ namespace GCS_EEPISAT_05__COSMO_
                 //CMDEchoLabel.Text = String.Format("{0}", cmd_echo);
                 //    #endregion
 
+                // CanSat Battery
+                CanSatBaterryVoltage.Text = String.Format("{0:0.0}", voltage);
+
                 SolidColorBrush red = (SolidColorBrush)new BrushConverter().ConvertFromString("#7D1C1C");
                 SolidColorBrush white = (SolidColorBrush)new BrushConverter().ConvertFromString("#FFFFFF");
                 SolidColorBrush LimeGreen = (SolidColorBrush)new BrushConverter().ConvertFromString("#5BC12C");
                 SolidColorBrush black = (SolidColorBrush)new BrushConverter().ConvertFromString("#000000");
                 if (pc_status == 'N')
                 {
-                    ParachuteReleased.Background = red;
+                    ParachuteReleasedPane.Background = red;
                     ParachuteReleased.Foreground = white;
                 }
                 else
                 {
-                    ParachuteReleased.Background = LimeGreen;
+                    ParachuteReleasedPane.Background = LimeGreen;
                     ParachuteReleased.Foreground = black;
                 }
 
                 if (hs_status == 'N')
                 {
-                    HeatShieldReleased.Background = red;
+                    HeatShieldReleasedPane.Background = red;
                     HeatShieldReleased.Foreground = white;
                 }
                 else
                 {
-                    HeatShieldReleased.Background = LimeGreen;
+                    HeatShieldReleasedPane.Background = LimeGreen;
                     HeatShieldReleased.Foreground = black;
                 }
 
@@ -1057,9 +1160,9 @@ namespace GCS_EEPISAT_05__COSMO_
             {
                 modelMain = model3;
             }
-            
+
             // Set the new 3D model to the content of the Viewport3D
-            //model.Content = modelMain;
+            model.Content = modelMain;
 
             // Reset the transformation matrix to the identity matrix
             //model.Content.Transform = new MatrixTransform3D(Matrix3D.Identity);
@@ -1250,12 +1353,12 @@ namespace GCS_EEPISAT_05__COSMO_
                 }
                 catch (Exception)
                 {
-                    
+
                     //System.Windows.Forms.MessageBox.Show(coy.Message, "Waduh, belom nyambung serial port weh!", MessageBoxButtons.OK, MessageBoxIcon.Error); //Can't Connect To Serial Port, Try Again
 
                     PortStatus.Content = "Try Again!";
                     PortStatusPane.Background = System.Windows.Media.Brushes.Red;
-                    
+
                     return;
 
 
@@ -1343,7 +1446,7 @@ namespace GCS_EEPISAT_05__COSMO_
             cansatFileLog = binAppPath + "\\LogData\\FLIGHT\\Flight_" + teamId + ".csv";
             if (System.IO.File.Exists(cansatFileLog))
             {
-                string date = DateTime.Now.ToString("yyyy-MM-dd hh-mm tt");                                         
+                string date = DateTime.Now.ToString("yyyy-MM-dd hh-mm tt");
                 //string date = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
                 if (!Directory.Exists(binAppPath + "\\LogData\\FLIGHT\\" + date + "\\"))
                 {
@@ -1363,7 +1466,7 @@ namespace GCS_EEPISAT_05__COSMO_
                 {
                     ComportDropdown.Items.Add(ComPort);
                 }
-                string[] BaudRate = { "2400", "4800", "9600", "19200", "31250","38400", "57600", "74880", "115200", "230400","250000" };
+                string[] BaudRate = { "2400", "4800", "9600", "19200", "31250", "38400", "57600", "74880", "115200", "230400", "250000" };
                 foreach (string baud in BaudRate)
                 {
                     BaudrateDropdown.Items.Add(baud);
@@ -1377,7 +1480,7 @@ namespace GCS_EEPISAT_05__COSMO_
                 this.WriteTelemetryData = new AddDataDelegate(NewLine);
                 GC.Collect();
             }
-            catch 
+            catch
             {
                 return;
             }
@@ -1517,8 +1620,8 @@ namespace GCS_EEPISAT_05__COSMO_
                     {
                         if (mapMarkerPayload == null)
                         {
-                            //PayloadStatusText.Content = "In Service";
-                            //PayloadStatusIcon.Foreground = System.Windows.Media.Brushes.LimeGreen;
+                            CanSatStatusText.Content = "In Service";
+                            CanSatStatusIcon.Foreground = System.Windows.Media.Brushes.LimeGreen;
                             string Platitude = gps_latitude.ToString();
                             string Plongitude = gps_longitude.ToString();
                             PayloadCoordinateText.Content = Platitude.Substring(0, 7) + ", " + Plongitude.Substring(0, 7);
@@ -1532,8 +1635,8 @@ namespace GCS_EEPISAT_05__COSMO_
                     }
                     else
                     {
-                        //PayloadStatusText.Content = "Locking GPS....";
-                        //PayloadStatusIcon.Foreground = System.Windows.Media.Brushes.Blue;
+                        CanSatStatusText.Content = "Locking GPS....";
+                        CanSatStatusIcon.Foreground = System.Windows.Media.Brushes.Blue;
                     }
                 }
                 else
@@ -1575,8 +1678,8 @@ namespace GCS_EEPISAT_05__COSMO_
                     {
                         if (gps_latitude != 0 && gps_longitude != 0)
                         {
-                            //PayloadStatusText.Content = "In Service";
-                            //PayloadStatusIcon.Foreground = System.Windows.Media.Brushes.LimeGreen;
+                            CanSatStatusText.Content = "In Service";
+                            CanSatStatusIcon.Foreground = System.Windows.Media.Brushes.LimeGreen;
                             if (mapMarkerPayload != null)
                             {
                                 Debug.WriteLine("Payload Disini!");
@@ -1642,8 +1745,8 @@ namespace GCS_EEPISAT_05__COSMO_
                         }
                         else
                         {
-                            //PayloadStatusText.Content = "Locking GPS....";
-                            //PayloadStatusIcon.Foreground = System.Windows.Media.Brushes.Blue;
+                            CanSatStatusText.Content = "Locking GPS....";
+                            CanSatStatusIcon.Foreground = System.Windows.Media.Brushes.Blue;
                         }
                     }
                     catch (NullReferenceException)
@@ -1695,7 +1798,7 @@ namespace GCS_EEPISAT_05__COSMO_
                         GCSCoordinateText.Content = Math.Round(gcs_latitude, 4).ToString() + ", " + Math.Round(gcs_longitude, 4).ToString();
                         GCSLocationStatus.Text = Math.Round(gcs_latitude, 4).ToString() + ", " + Math.Round(gcs_longitude, 4).ToString();
                         mapMarkerGCS.Position = new PointLatLng(watcher.Position.Location.Latitude, watcher.Position.Location.Longitude);
-                        mapMarkerGCS.ToolTipText = $"GCS\n" + $" Latitude : {Math.Round(gcs_longitude, 4)}, \n" + $" Longitude : {Math.Round(gcs_longitude, 4)}";
+                        mapMarkerGCS.ToolTipText = $"GCS\n" + $" Latitude : {Math.Round(gcs_latitude, 4)}, \n" + $" Longitude : {Math.Round(gcs_longitude, 4)}";
                     }
                 }
 
@@ -1902,64 +2005,68 @@ namespace GCS_EEPISAT_05__COSMO_
                     gcs_longitude = ((float)watcher.Position.Location.Longitude);
                     GCSStatusText.Content = "In Service";
                     GCSCoordinateText.Content = gcs_latitude.ToString().Substring(0, 7) + ", " + gcs_latitude.ToString().Substring(0, 7);
-                    GCSLocationStatus.Text = gcs_latitude.ToString().Substring(0, 7) + ", " + gcs_latitude.ToString().Substring(0, 7);
+                    GCSLocationStatus.Text = gcs_latitude.ToString().Substring(0, 7) + ", " + gcs_longitude.ToString().Substring(0, 7);
                     GCSStatusIcon.Foreground = new SolidColorBrush(System.Windows.Media.Color.FromRgb(0, 255, 0));
                 }
             }
         }
 
         private void DataNavClick(object sender, System.Windows.RoutedEventArgs e)
-            {
-               MainPage.SelectedIndex = 3;
-            }
+        {
+            MainPage.SelectedIndex = 3;
+        }
 
         private void SettingNavClick(object sender, System.Windows.RoutedEventArgs e)
-            {
-                MainPage.SelectedIndex = 4;
-            }
+        {
+            MainPage.SelectedIndex = 4;
+        }
 
         private void MainPage_SelectionChanged(object sender, SelectionChangedEventArgs e)
-            {
+        {
 
-            }
+        }
 
         private void ShutdownBtnClick(object sender, System.Windows.RoutedEventArgs e)
+        {
+            MessageBoxResult result = System.Windows.MessageBox.Show("Are you sure to shutdown the GCS?", "", MessageBoxButton.OKCancel);
+            switch (result)
             {
-                MessageBoxResult result = System.Windows.MessageBox.Show("Are you sure to shutdown the GCS?", "", MessageBoxButton.OKCancel);
-                switch (result)
-                {
-                    case MessageBoxResult.OK:
-                        //SoundPlayer player = new(binAppPath + "/Audio/GCSSTOP.wav");
-                        //player.Play();
-                        //Thread.Sleep(3000);
-                        System.Windows.Application.Current.Shutdown();
-                        break;
-                    case MessageBoxResult.Cancel:
-                        break;
-                }
+                case MessageBoxResult.OK:
+                    //SoundPlayer player = new(binAppPath + "/Audio/GCSSTOP.wav");
+                    //player.Play();
+                    //Thread.Sleep(3000);
+                    System.Windows.Application.Current.Shutdown();
+                    break;
+                case MessageBoxResult.Cancel:
+                    break;
             }
+        }
 
         private void RestartBtnClick(object sender, System.Windows.RoutedEventArgs e)
-            {
-                MessageBoxResult result = System.Windows.MessageBox.Show("Are you sure to restart the application?", "", MessageBoxButton.OK);
+        {
+            MessageBoxResult result = System.Windows.MessageBox.Show("Are you sure to restart the application?", "", MessageBoxButton.OKCancel);
 
-                if (result == MessageBoxResult.OK)
-                {
+            switch (result)
+            {
+                case MessageBoxResult.OK:
                     // Menutup aplikasi saat ini
                     System.Windows.Application.Current.Shutdown();
                     SoundPlayer player = new(binAppPath + "/Audio/GCSSTOP.wav");
                     player.Play();
 
-                // Mendapatkan path aplikasi yang sedang berjalan
-                string appPath = System.Reflection.Assembly.GetExecutingAssembly().Location;
+                    // Mendapatkan path aplikasi yang sedang berjalan
+                    string appPath = System.Reflection.Assembly.GetExecutingAssembly().Location;
 
                     // Memulai aplikasi lagi
                     Process.Start(appPath);
 
                     // Mengakhiri proses saat ini
                     Environment.Exit(0);
-                }
+                    break;
+                case MessageBoxResult.Cancel:
+                    break;
             }
+        }
 
         private void MinimizeBtnClick(object sender, System.Windows.RoutedEventArgs e)
         {
@@ -1968,48 +2075,45 @@ namespace GCS_EEPISAT_05__COSMO_
         }
 
         public void GetBatteryPercent()
+        {
+            ManagementClass wmi = new("Win32_Battery");
+            var allBatteries = wmi.GetInstances();
+            int estimatedTimeRemaining, estimatedChargeRemaining;
+            string final;
+            foreach (var battery in allBatteries)
             {
-                ManagementClass wmi = new("Win32_Battery");
-                var allBatteries = wmi.GetInstances();
-                int estimatedTimeRemaining, estimatedChargeRemaining;
-                string final;
-                foreach (var battery in allBatteries)
-                {
-                    estimatedChargeRemaining = Convert.ToInt32(battery["EstimatedChargeRemaining"]);
-                    estimatedTimeRemaining = Convert.ToInt32(battery["EstimatedRunTime"]);
-                    x = estimatedChargeRemaining;
-                    y = estimatedTimeRemaining;
+                estimatedChargeRemaining = Convert.ToInt32(battery["EstimatedChargeRemaining"]);
+                estimatedTimeRemaining = Convert.ToInt32(battery["EstimatedRunTime"]);
+                x = estimatedChargeRemaining;
+                y = estimatedTimeRemaining;
 
-                    BatteryPercentage.Height = Convert.ToDouble(estimatedChargeRemaining);
-                    BatteryStatus.Content = Convert.ToString(estimatedChargeRemaining) + "%";
-                    BatteryLaptopRemaining.Text = Convert.ToString(estimatedTimeRemaining) + "";
-                }
-                if ((int)hasilRegLin > 715827)
-                {
-                    jumlahDataRegLin = 0;
-                    sumX = 0;
-                    sumX2 = 0;
-                    sumY = 0;
-                    sumXY = 0;
-                    hasilRegLin = 0;
-                }
-                jumlahDataRegLin += 2;
-                sumX += (x * 2);
-                sumX2 += (x * 2) * (x * 2);
-                sumY += (y * 2);
-                sumXY += (x * 2) * (y * 2);
-                m = (jumlahDataRegLin * sumXY - sumX * sumY) / (jumlahDataRegLin * sumX2 - sumX * sumX);
-                c = (sumY - m * sumX) / jumlahDataRegLin;
-                hasilRegLin = c + (m * x);
-                final = Convert.ToString((int)hasilRegLin) + "" + "Minutes Remaining";
+                BatteryStatus.Content = Convert.ToString(estimatedChargeRemaining) + "% Remaining";
+            }
+            if ((int)hasilRegLin > 715827)
+            {
+                jumlahDataRegLin = 0;
+                sumX = 0;
+                sumX2 = 0;
+                sumY = 0;
+                sumXY = 0;
+                hasilRegLin = 0;
+            }
+            jumlahDataRegLin += 2;
+            sumX += (x * 2);
+            sumX2 += (x * 2) * (x * 2);
+            sumY += (y * 2);
+            sumXY += (x * 2) * (y * 2);
+            m = (jumlahDataRegLin * sumXY - sumX * sumY) / (jumlahDataRegLin * sumX2 - sumX * sumX);
+            c = (sumY - m * sumX) / jumlahDataRegLin;
+            hasilRegLin = c + (m * x);
+            final = Convert.ToString((int)hasilRegLin) + "" + " Minutes";
 
-
-                if (y == 71582788)
-                {
-                    var converter = new System.Windows.Media.BrushConverter();
-                    var brush = (System.Windows.Media.Brush)converter.ConvertFromString("#00FF00");
-                   BatteryPercentage.Background = brush;
-                    final = "On Charging";
+            if (y == 71582788)
+            {
+                var converter = new System.Windows.Media.BrushConverter();
+                var brush = (System.Windows.Media.Brush)converter.ConvertFromString("#00FF00");
+                BatteryPercentage.Background = brush;
+                final = "On Charging";
             }
             else if (y < 30)
             {
@@ -2024,7 +2128,9 @@ namespace GCS_EEPISAT_05__COSMO_
                 BatteryPercentage.Background = brush;
             }
 
-            BatteryLaptopRemaining.Text += final;
+            BatteryLaptopRemaining.Text = final;
+            BatteryPercentage.Height = x / 2;
+
             if (jumlahDataRegLin >= 1000)
             {
                 jumlahDataRegLin = 0;
@@ -2055,7 +2161,7 @@ namespace GCS_EEPISAT_05__COSMO_
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            CheckSerialPort();
+            // CheckSerialPort();
             GetBatteryPercent();
             GetPerformanceIndicator();
         }
@@ -2116,7 +2222,7 @@ namespace GCS_EEPISAT_05__COSMO_
                         max_max_temperature = 0;
                         max_max_volt = 0;
 
-                        
+
                         SolidColorBrush white = (SolidColorBrush)new BrushConverter().ConvertFromString("#FFFFFF");
 
                         ParachuteReleasedPane.Background = merahdark;
@@ -2241,9 +2347,6 @@ namespace GCS_EEPISAT_05__COSMO_
                                 string cmd = "CMD,2032,ST,GPS";
 
                                 StartTimer(cmd);
-
-
-
 
                                 CMDTextBox2.Text += "\r\n" + "Setting CanSat time by GPS....." + "\r\n";
                                 CMDTextBox2.ScrollToEnd();
@@ -2587,17 +2690,17 @@ namespace GCS_EEPISAT_05__COSMO_
                         return;
                     }
                 }
-                else if (line == "CMD,2032,TEST")
+                else if (line == "CMD,2032,GB,ON")
                 {
                     try
                     {
-                        string cmd = "CMD,2032,TEST";
+                        string cmd = "CMD,2032,GB,ON";
 
                         StartTimer(cmd);
 
 
 
-                        CMDTextBox2.Text += "\r\n" + "Command Testing....." + "\r\n";   //Emoji.Use.Construction +
+                        CMDTextBox2.Text += "\r\n" + "Gimbal Testing....." + "\r\n";   //Emoji.Use.Construction +
                         CMDTextBox2.ScrollToEnd();
                     }
                     catch
@@ -2619,7 +2722,7 @@ namespace GCS_EEPISAT_05__COSMO_
                             words_status = "LCK_MECHANISM";
 
                         }
-                        else if (lineSplit == "HSR")
+                        else if (lineSplit == "HS")
                         {
                             words = "Heat Shield";
                             words_status = "HS_RELEASED";
@@ -2792,7 +2895,7 @@ namespace GCS_EEPISAT_05__COSMO_
         {
             if (Col4.Count == timerCSV)
             {
-                CMDTextBox2.Text =  " Simulation is over! \r\n";   //Emoji.Use.Robot_Face
+                CMDTextBox2.Text = " Simulation is over! \r\n";   //Emoji.Use.Robot_Face
                 timerCSV = 0;
                 timerSimulation.Stop();
                 CMDTextBox1.Text = "CMD,2032,SIM,DISABLE";
@@ -2806,7 +2909,7 @@ namespace GCS_EEPISAT_05__COSMO_
                     {
                         // Port is not open, so it is likely not connected
                         Debug.WriteLine("Serial port is not connected.");
-                        CMDTextBox2.Text =  " Simulation is over!"; //Emoji.Use.Robot_Face +
+                        CMDTextBox2.Text = " Simulation is over!"; //Emoji.Use.Robot_Face +
                         timerCSV = 0;
                         timerSimulation.Stop();
                         Debug.WriteLine("Timersimulation is stopped, is it? (if true it false) " + timerSimulation.IsEnabled);
@@ -2828,7 +2931,7 @@ namespace GCS_EEPISAT_05__COSMO_
                         //Debug.WriteLine("Test outside " + timerCSV);
                         _serialPort.Write(cmd);
                         //SerialDataStatus.Content = "SIMP" + Col4[timerCSV];
-                        SerialControlTextBox.Text +=  " CMD,2032,SIMP," + Col4[timerCSV] + "\n"; //Emoji.Use.Pencil +
+                        SerialControlTextBox.Text += " CMD,2032,SIMP," + Col4[timerCSV] + "\n"; //Emoji.Use.Pencil +
                     }
 
                 }
@@ -2846,7 +2949,7 @@ namespace GCS_EEPISAT_05__COSMO_
         {
             if ((string)ThreeDModelBtn.Content == "Started")
             {
-                //model.Content = null;
+                model.Content = null;
                 //ThreeDModelStatus.Content = "Not Started";
                 ThreeDModelBtn.Content = "Start";
             }
@@ -2902,7 +3005,7 @@ namespace GCS_EEPISAT_05__COSMO_
             {
                 return;
             }
-            else if (_counterCommand < 2)
+            else if (_counterCommand < 1)
             {
                 _serialPort.Write((string)state + "\r");
                 Debug.WriteLine("Counter Test Baru: {0} {1}", _counterCommand, (string)state);
@@ -2949,7 +3052,7 @@ namespace GCS_EEPISAT_05__COSMO_
                     {
                         e.Handled = true;
                         //SoundPlayer player = new(binAppPath + "/Audio/CONNECTTO.wav");
-                        CMDTextBox2.Text += "\r\n"  + "Connect To Serial Port First!" + "\r\n"; //+ Emoji.Use.Information_Source
+                        CMDTextBox2.Text += "\r\n" + "Connect To Serial Port First!" + "\r\n"; //+ Emoji.Use.Information_Source
                         CMDTextBox1.Clear();
                     }
                 }
@@ -3044,7 +3147,12 @@ namespace GCS_EEPISAT_05__COSMO_
                 auto_scroll = false;
             }
         }
+
+        private void calibrateGCS()
+        {
+
+        }
     }
 }
-    
+
 

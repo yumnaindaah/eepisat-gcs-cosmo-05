@@ -250,7 +250,8 @@
                             </Grid.ColumnDefinitions>
                             <TextBlock x:Name="CanSatBaterryPercent" Text="0%" Foreground="#292929" FontFamily="Inter" FontWeight="Regular" FontSize="15" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                             <TextBlock Text="/" Foreground="#292929" FontFamily="Inter" FontWeight="Regular" FontSize="15" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                            <TextBlock x:Name="CanSatBaterryVoltage" Text="0.0 v" Foreground="#292929" FontFamily="Inter" FontWeight="Regular" FontSize="15" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                            <TextBlock x:Name="CanSatBaterryVoltage" Text="0.0" Foreground="#292929" FontFamily="Inter" FontWeight="Regular" FontSize="15" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                            <TextBlock Text="V" Foreground="#292929" FontFamily="Inter" FontWeight="Regular" FontSize="15" Grid.Column="2" Margin="0 0 4 0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
                         </Grid>
                     </Grid>
 
@@ -952,14 +953,14 @@
 
                                     <Border Grid.Row="1" Background="#D9D9D9" Grid.Column="1" CornerRadius="20">
                                         <Border x:Name="OpenGL" Grid.Row="1">
-                                            <!--<h:HelixViewport3D Margin="10" ShowCoordinateSystem="True" ShowFrameRate="True" ShowViewCube="True">
+                                            <h:HelixViewport3D Margin="10" ShowCoordinateSystem="True" ShowFrameRate="True" ShowViewCube="True">
                                                 <h:HelixViewport3D.Camera>
-                                                    <PerspectiveCamera x:Name="modelCamera" FieldOfView="45" LookDirection="0.000,0.000,-12.601" Position="0.000,100.000,1800.000" />
+                                                    <PerspectiveCamera x:Name="modelCamera" FieldOfView="100" LookDirection="0.000,0.000,-12.601" Position="0.000,0.000,1000.000" />
                                                 </h:HelixViewport3D.Camera>
                                                 <h:DefaultLights />
 
                                                 <ModelVisual3D x:Name="model" />
-                                            </h:HelixViewport3D>-->
+                                            </h:HelixViewport3D>
                                         </Border>
                                     </Border>
                                 </Grid>

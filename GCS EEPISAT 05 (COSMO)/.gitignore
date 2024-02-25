@@ -5,7 +5,11 @@
 # .NET Core build folders
 bin/
 obj/
+Assets/3D
+Assets/3D
 
+/Assets/3D
+/Assets/3D/
 /bin
 /obj
 
