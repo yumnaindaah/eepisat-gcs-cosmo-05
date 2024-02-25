@@ -14,6 +14,25 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\3D\CanSat Inside Rocket\Assembly_3D GCS.mtl" />
+    <None Remove="Assets\3D\CanSat Inside Rocket\Assembly_3D GCS.obj" />
+    <None Remove="Assets\3D\CanSat Inside Rocket\Cardboard.jpg" />
+    <None Remove="Assets\3D\CanSat Inside Rocket\Finishes.Laminate.CarbonFiber.Bump.jpg" />
+    <None Remove="Assets\3D\CanSat Inside Rocket\Finishes.Laminate.CarbonFiber.jpg" />
+    <None Remove="Assets\3D\CanSat Inside Rocket\Steelplt.png" />
+    <None Remove="Assets\3D\CanSat Parachute Deploy\Assembly_3D GCS.mtl" />
+    <None Remove="Assets\3D\CanSat Parachute Deploy\Assembly_3D GCS.obj" />
+    <None Remove="Assets\3D\CanSat Parachute Deploy\Finishes.Laminate.CarbonFiber.Bump.jpg" />
+    <None Remove="Assets\3D\CanSat Parachute Deploy\Finishes.Laminate.CarbonFiber.jpg" />
+    <None Remove="Assets\3D\CanSat Parachute Deploy\Steelplt.png" />
+    <None Remove="Assets\3D\CanSat Parachute Deploy\TEXTURE_Ripstop_Nylon.jpg" />
+    <None Remove="Assets\3D\CanSat Separated\Assembly_3D GCS.mtl" />
+    <None Remove="Assets\3D\CanSat Separated\Assembly_3D GCS.obj" />
+    <None Remove="Assets\3D\CanSat Separated\Finishes.Laminate.CarbonFiber.Bump.jpg" />
+    <None Remove="Assets\3D\CanSat Separated\Finishes.Laminate.CarbonFiber.jpg" />
+    <None Remove="Assets\3D\CanSat Separated\NORMAL_Ripstop_Nylon.png" />
+    <None Remove="Assets\3D\CanSat Separated\Steelplt.png" />
+    <None Remove="Assets\3D\CanSat Separated\TEXTURE_Ripstop_Nylon.jpg" />
     <None Remove="Assets\battery.png" />
     <None Remove="Assets\can1.png" />
     <None Remove="Assets\can2.png" />
@@ -73,6 +92,63 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Assets\3D\CanSat Inside Rocket\Assembly_3D GCS.mtl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\3D\CanSat Inside Rocket\Assembly_3D GCS.obj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\3D\CanSat Inside Rocket\Cardboard.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\3D\CanSat Inside Rocket\Finishes.Laminate.CarbonFiber.Bump.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\3D\CanSat Inside Rocket\Finishes.Laminate.CarbonFiber.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\3D\CanSat Inside Rocket\Steelplt.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\3D\CanSat Parachute Deploy\Assembly_3D GCS.mtl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\3D\CanSat Parachute Deploy\Assembly_3D GCS.obj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\3D\CanSat Parachute Deploy\Finishes.Laminate.CarbonFiber.Bump.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\3D\CanSat Parachute Deploy\Finishes.Laminate.CarbonFiber.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\3D\CanSat Parachute Deploy\Steelplt.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\3D\CanSat Parachute Deploy\TEXTURE_Ripstop_Nylon.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\3D\CanSat Separated\Assembly_3D GCS.mtl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\3D\CanSat Separated\Assembly_3D GCS.obj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\3D\CanSat Separated\Finishes.Laminate.CarbonFiber.Bump.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\3D\CanSat Separated\Finishes.Laminate.CarbonFiber.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\3D\CanSat Separated\NORMAL_Ripstop_Nylon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\3D\CanSat Separated\Steelplt.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\3D\CanSat Separated\TEXTURE_Ripstop_Nylon.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\battery.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -249,6 +325,7 @@
     <PackageReference Include="GeoCoordinate.NetCore" Version="1.0.0.1" />
     <PackageReference Include="GMap.NET.WindowsForms" Version="1.7.5" />
     <PackageReference Include="GMap.Net.WPF" Version="1.0.0.1" />
+    <PackageReference Include="HelixToolkit.Wpf" Version="2.24.0" />
     <PackageReference Include="MaterialDesignColors" Version="2.1.4" />
     <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
     <PackageReference Include="Microsoft.Maps.MapControl.WPF" Version="1.0.0.3" />
